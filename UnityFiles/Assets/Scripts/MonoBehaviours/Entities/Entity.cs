@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private float maxHealth;
-    private float currentHealth;
+    protected float maxHealth;
+    protected float currentHealth;
 
-    private float currentMoveSpeed;
-    private float minMoveSpeed;
-    private float maxMoveSpeed;
+    [SerializeField]
+    protected float currentMoveSpeed;
+    protected float minMoveSpeed;
+    protected float maxMoveSpeed;
 }
 
 
