@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 0b0b189d571801a4d8e662d10a7a96bb
-timeCreated: 1524291045
+guid: c5528ba60b5cc474096ec7f6e0dcea2a
+timeCreated: 1524294169
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Chunk_01_01
-    100002: //RootNode
-    400000: Chunk_01_01
-    400002: //RootNode
-    2100000: Chunk_01_01Mat
-    2300000: Chunk_01_01
-    3300000: Chunk_01_01
-    4300000: Chunk_01_01
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Grass
+    2100002: Soil
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Grass_Centre
   externalObjects: {}
   materials:
     importMaterials: 1

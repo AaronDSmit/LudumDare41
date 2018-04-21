@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 74d0838bccbb262498621cfc9876d974
-timeCreated: 1524292404
+guid: e2f1345ea9d2eee48b34205c7bc1bcbc
+timeCreated: 1524294169
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: phong1
+    2100000: Grass
+    2100002: Soil
     2300000: //RootNode
     3300000: //RootNode
-    4300000: ChunkBase
+    4300000: Grass_Corner
   externalObjects: {}
   materials:
     importMaterials: 1

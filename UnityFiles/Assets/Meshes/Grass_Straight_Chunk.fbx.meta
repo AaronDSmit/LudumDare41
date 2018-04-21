@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 817d2a1aaefd89d4fb51bf73dde0d342
-timeCreated: 1524292334
+guid: 8ccf8cfce133fcd4aa36d6e688ff20ec
+timeCreated: 1524294169
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Grass_Corner_Chunk
-    100002: //RootNode
-    400000: Grass_Corner_Chunk
-    400002: //RootNode
-    2100000: Grass_Corner_ChunkMat
-    2300000: Grass_Corner_Chunk
-    3300000: Grass_Corner_Chunk
-    4300000: Grass_Corner_Chunk
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Grass
+    2100002: Soil
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Grass_Side
   externalObjects: {}
   materials:
     importMaterials: 1
