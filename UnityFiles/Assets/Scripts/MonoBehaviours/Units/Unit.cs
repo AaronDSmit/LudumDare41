@@ -10,7 +10,8 @@ public class Unit : LivingEntity
     [Header("Attacking")]
     [SerializeField]
     private float damage;
-    [SerializeField] private float attackRange;
+    [SerializeField] private float siloAttackRange;
+    [SerializeField] private float unitAttackRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float detectionRange;
 
@@ -21,6 +22,7 @@ public class Unit : LivingEntity
     private LivingEntity currentTarget;
     private LivingEntity finalTarget;
     private NavMeshAgent agent;
+    private float currentAttackRange;
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -44,6 +46,7 @@ public class Unit : LivingEntity
 
         List<Tower> towers = FindObjectsOfType<Tower>().ToList();
         currentTarget = finalTarget = towers.Find(t => t.Team != Team);
+        UpdateAttackRange();
         agent.SetDestination(currentTarget.transform.position);
     }
 
@@ -71,6 +74,7 @@ public class Unit : LivingEntity
             if (closestEnemy != currentTarget)
             {
                 currentTarget = closestEnemy;
+                UpdateAttackRange();
                 agent.destination = currentTarget.transform.position;
             }
         }
@@ -79,6 +83,7 @@ public class Unit : LivingEntity
             if (currentTarget != finalTarget)
             {
                 currentTarget = finalTarget;
+                UpdateAttackRange();
                 agent.destination = currentTarget.transform.position;
             }
         }
@@ -89,7 +94,7 @@ public class Unit : LivingEntity
         if (agent.destination == transform.position)
             return;
 
-        if (Vector3.Distance(transform.position, currentTarget.transform.position) < attackRange)
+        if (Vector3.Distance(transform.position, currentTarget.transform.position) < currentAttackRange)
         {
             agent.destination = transform.position;
         }
@@ -109,7 +114,7 @@ public class Unit : LivingEntity
         }
         else
         {
-            if (Vector3.Distance(transform.position, currentTarget.transform.position) <= attackRange)
+            if (Vector3.Distance(transform.position, currentTarget.transform.position) <= currentAttackRange)
                 Attack();
         }
     }
@@ -148,5 +153,12 @@ public class Unit : LivingEntity
         }
 
         return closestUnit;
+    }
+
+    private void UpdateAttackRange () {
+        if (currentTarget is Unit)
+            currentAttackRange = unitAttackRange;
+        else
+            currentAttackRange = siloAttackRange;
     }
 }

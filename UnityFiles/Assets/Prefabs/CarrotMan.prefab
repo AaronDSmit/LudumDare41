@@ -329,7 +329,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.25, y: 1, z: 0.25}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!82 &82886726615887990
 AudioSource:
@@ -461,7 +461,8 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   damaged: {fileID: 0}
   damage: 10
-  attackRange: 5
+  siloAttackRange: 3
+  unitAttackRange: 2
   attackCooldown: 1
   detectionRange: 5
   activated: {fileID: 0}
@@ -476,7 +477,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

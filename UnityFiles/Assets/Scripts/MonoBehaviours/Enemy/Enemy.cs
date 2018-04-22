@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
     private void CheckPlots () {
         checkCount += Time.deltaTime;
 
-        if(checkCount >= plotCheckTimeMax) {
+        if(checkCount >= currentCheckTime) {
             checkCount = 0f;
             RandomizeCheckTime();
             PlacePlant();
