@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
                 if (plot != null)
                 {
-                    plot.PlacePlant(plants[currentPlant], Team.PLAYER);
+                    plot.PlacePlant(plants[Random.Range(0, 2)], Team.PLAYER);
                 }
             }
         }
