@@ -13,6 +13,9 @@ public class LivingEntity : MonoBehaviour
     [SerializeField]
     protected Team team;
 
+    [SerializeField]
+    protected RectTransform hpBar;
+
     public Team Team
     {
         get { return team; }
@@ -29,6 +32,11 @@ public class LivingEntity : MonoBehaviour
     {
         currentHealth -= damage;
 
+        if (hpBar != null)
+        {
+            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -40,7 +48,10 @@ public class LivingEntity : MonoBehaviour
     {
         currentHealth -= 50;
 
-        transform.Translate(Vector3.down);
+        if (hpBar != null)
+        {
+            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
+        }
 
         if (currentHealth <= 0)
         {
