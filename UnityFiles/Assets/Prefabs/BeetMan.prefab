@@ -456,17 +456,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bcea123f3d75e48b458ea89e2b2997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  startHealth: 25
   team: 0
   hpBar: {fileID: 0}
-  damaged: {fileID: 0}
-  damage: 10
+  damaged: {fileID: 8300000, guid: 9937b67fe4ed7f6499278270a1f1d352, type: 3}
+  damage: 8
   siloAttackRange: 3
   unitAttackRange: 2
   attackCooldown: 1
   detectionRange: 5
   roationSpeed: 2
-  activated: {fileID: 0}
+  activated: {fileID: 8300000, guid: 74739a14590c12b45afe2011de235f40, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195796603177639182
 NavMeshAgent:
