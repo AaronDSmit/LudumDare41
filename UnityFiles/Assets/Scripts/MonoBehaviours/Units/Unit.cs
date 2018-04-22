@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Unit : LivingEntity {
+public class Unit : LivingEntity
+{
     [Header("Attacking")]
-    [SerializeField] private float damage;
+    [SerializeField]
+    private float damage;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float detectionRange;
@@ -20,12 +22,23 @@ public class Unit : LivingEntity {
     private LivingEntity finalTarget;
     private NavMeshAgent agent;
 
-    protected void Awake () {
+    [Header("Audio Clips")]
+    [SerializeField]
+    private AudioClip activated;
+
+    [SerializeField]
+    private AudioClip attackSound;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
         canAttack = true;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void Activate (Team team) {
+    public void Activate(Team team)
+    {
         Team = team;
         active = true;
 
@@ -34,7 +47,8 @@ public class Unit : LivingEntity {
         agent.SetDestination(currentTarget.transform.position);
     }
 
-    private void Update () {
+    private void Update()
+    {
         if (active == false)
             return;
 
@@ -43,61 +57,82 @@ public class Unit : LivingEntity {
         CheckAttack();
     }
 
-    protected override void Die () {
+    protected override void Die()
+    {
         Destroy(gameObject);
     }
 
-    private void CheckTarget () {
+    private void CheckTarget()
+    {
         LivingEntity closestEnemy = GetClosestEnemyUnit();
 
-        if(closestEnemy != null) {
-            if (closestEnemy != currentTarget) {
+        if (closestEnemy != null)
+        {
+            if (closestEnemy != currentTarget)
+            {
                 currentTarget = closestEnemy;
                 agent.destination = currentTarget.transform.position;
             }
-        } else {
-            if (currentTarget != finalTarget) {
+        }
+        else
+        {
+            if (currentTarget != finalTarget)
+            {
                 currentTarget = finalTarget;
                 agent.destination = currentTarget.transform.position;
             }
         }
     }
 
-    private void CheckDistance () {
+    private void CheckDistance()
+    {
         if (agent.destination == transform.position)
             return;
 
-        if(Vector3.Distance(transform.position, currentTarget.transform.position) < attackRange) {
+        if (Vector3.Distance(transform.position, currentTarget.transform.position) < attackRange)
+        {
             agent.destination = transform.position;
         }
     }
 
-    private void CheckAttack () {
-
-        if(canAttack == false) {
+    private void CheckAttack()
+    {
+        if (canAttack == false)
+        {
             attackTime += Time.deltaTime;
 
-            if(attackTime >= attackCooldown) {
+            if (attackTime >= attackCooldown)
+            {
                 canAttack = true;
                 attackTime = 0f;
             }
-        } else {
-            if(Vector3.Distance(transform.position, currentTarget.transform.position) <= attackRange)
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, currentTarget.transform.position) <= attackRange)
                 Attack();
         }
     }
 
-    private void Attack () {
+    private void Attack()
+    {
+        if (attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
+
         currentTarget.TakeDamge(damage);
         canAttack = false;
     }
 
-    private Unit GetClosestEnemyUnit () {
+    private Unit GetClosestEnemyUnit()
+    {
         Collider[] inRangeColliders = Physics.OverlapSphere(transform.position, detectionRange);
         Unit closestUnit = null;
         float currentRange = float.MaxValue;
 
-        for (int i = 0; i < inRangeColliders.Length; i++) {
+        for (int i = 0; i < inRangeColliders.Length; i++)
+        {
             Unit u = inRangeColliders[i].GetComponent<Unit>();
 
             if (u == null || u == this || u.Team == Team)
@@ -105,7 +140,8 @@ public class Unit : LivingEntity {
 
             float dist = Vector3.Distance(transform.position, u.transform.position);
 
-            if (dist < currentRange) {
+            if (dist < currentRange)
+            {
                 closestUnit = u;
                 currentRange = dist;
             }

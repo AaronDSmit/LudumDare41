@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
     public static Player instance = null;
@@ -20,6 +21,15 @@ public class Player : MonoBehaviour
 
     private bool inControl;
 
+    [Header("Audio Clips")]
+    [SerializeField]
+    private AudioClip winSound;
+
+    [SerializeField]
+    private AudioClip loseSound;
+
+    private AudioSource audioSource;
+
     private void Awake()
     {
         inControl = true;
@@ -28,13 +38,15 @@ public class Player : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
+            audioSource = GetComponent<AudioSource>();
         }
         else if (instance != this)
         {
             Destroy(gameObject);
         }
 
-        // Persistant between scene loading
+        // Persistent between scene loading
         DontDestroyOnLoad(gameObject);
     }
 
@@ -42,12 +54,22 @@ public class Player : MonoBehaviour
     {
         WorldText.instance.ShowText(loseText);
         inControl = false;
+
+        if (loseSound != null)
+        {
+            audioSource.PlayOneShot(loseSound);
+        }
     }
 
     public void Win()
     {
         WorldText.instance.ShowText(winText);
         inControl = false;
+
+        if (winSound != null)
+        {
+            audioSource.PlayOneShot(winSound);
+        }
     }
 
     private void Update()

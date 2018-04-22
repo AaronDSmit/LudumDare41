@@ -330,10 +330,13 @@ MonoBehaviour:
   growthStages:
   - localposition: {x: 0, y: -1.06, z: 0}
     localScale: {x: 1, y: 1, z: 1}
+    pitch: 1
   - localposition: {x: 0, y: -1.2, z: 0}
     localScale: {x: 1.45, y: 1.45, z: 1.45}
+    pitch: 1.1
   - localposition: {x: 0, y: 0, z: 0}
     localScale: {x: 2, y: 2, z: 2}
+    pitch: 1.2
   unitPrefab: {fileID: 114777477384616928, guid: c916040f988897c4f93c6028799bf745,
     type: 2}
   team: 0

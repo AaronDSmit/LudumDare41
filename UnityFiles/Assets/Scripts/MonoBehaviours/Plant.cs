@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Plant : MonoBehaviour
 {
     [SerializeField]
@@ -18,6 +19,16 @@ public class Plant : MonoBehaviour
 
     [SerializeField]
     private Team team;
+
+    [Header("Audio Clips")]
+    private AudioClip growthSound;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public Team Team
     {
@@ -38,6 +49,12 @@ public class Plant : MonoBehaviour
             transform.localPosition = growthStages[growthStage].localposition;
             SetGlobalScale(transform, growthStages[growthStage].localScale);
             growthStage++;
+
+            if (growthSound != null)
+            {
+                audioSource.pitch = growthStages[growthStage].pitch;
+                audioSource.PlayOneShot(growthSound);
+            }
 
             Invoke("Grow", growthTime);
         }
@@ -63,4 +80,5 @@ public struct GrowthVisual
 {
     public Vector3 localposition;
     public Vector3 localScale;
+    public float pitch;
 }

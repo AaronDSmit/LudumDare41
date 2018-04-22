@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum Team { PLAYER, AI }
 
+[RequireComponent(typeof(AudioSource))]
 public class LivingEntity : MonoBehaviour
 {
     [SerializeField]
@@ -16,11 +17,22 @@ public class LivingEntity : MonoBehaviour
     [SerializeField]
     protected RectTransform hpBar;
 
+    protected AudioSource audioSource;
+
+    [Header("Audio Clip")]
+    [SerializeField]
+    protected AudioClip damaged;
+
     public Team Team
     {
         get { return team; }
 
         set { team = value; }
+    }
+
+    protected virtual void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Start()
@@ -33,6 +45,11 @@ public class LivingEntity : MonoBehaviour
         currentHealth -= damage;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
+
+        if (damaged != null)
+        {
+            audioSource.PlayOneShot(damaged);
+        }
 
         if (hpBar != null)
         {
