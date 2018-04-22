@@ -13,9 +13,22 @@ public class Plant : MonoBehaviour
     [SerializeField]
     private GrowthVisual[] growthStages;
 
+    [SerializeField]
+    private Unit unitPrefab;
+
+    [SerializeField]
+    private Team team;
+
     private MeshFilter meshFilter;
 
     private MeshRenderer meshRenderer;
+
+    public Team Team
+    {
+        get { return team; }
+
+        set { team = value; }
+    }
 
     private void Awake()
     {
@@ -40,6 +53,9 @@ public class Plant : MonoBehaviour
         }
         else
         {
+            Unit unit = Instantiate(unitPrefab, new Vector3(transform.position.x, 0.0f, transform.position.z), Quaternion.identity);
+            unit.Activate(Team);
+
             Destroy(gameObject);
         }
     }

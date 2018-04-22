@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
     private int currentPlant;
 
     [SerializeField]
-    private GameObject loseUI;
+    private string loseText;
 
     [SerializeField]
-    private GameObject winUI;
+    private string winText;
 
     private bool inControl;
 
@@ -40,13 +40,13 @@ public class Player : MonoBehaviour
 
     public void Lose()
     {
-        loseUI.SetActive(true);
+        WorldText.instance.ShowText(loseText);
         inControl = false;
     }
 
     public void Win()
     {
-        winUI.SetActive(true);
+        WorldText.instance.ShowText(winText);
         inControl = false;
     }
 
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
                 if (plot != null)
                 {
-                    plot.PlacePlant(plants[currentPlant]);
+                    plot.PlacePlant(plants[currentPlant], Team.PLAYER);
                 }
             }
         }

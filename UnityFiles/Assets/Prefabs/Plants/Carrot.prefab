@@ -143,3 +143,6 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: e2f1345ea9d2eee48b34205c7bc1bcbc, type: 3}
   - mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     material: {fileID: 2100000, guid: 435872c105ba3af46ae756e66d0f069d, type: 2}
+  unitPrefab: {fileID: 114777477384616928, guid: c916040f988897c4f93c6028799bf745,
+    type: 2}
+  team: 0
