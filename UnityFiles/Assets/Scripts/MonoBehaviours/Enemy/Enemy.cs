@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour {
 
     private void Start () {
         active = true;
-        RandomizeCheckTime();
     }
 
     void Update () {
@@ -26,6 +25,12 @@ public class Enemy : MonoBehaviour {
 
     public void Activate () {
         active = true;
+        RandomizeCheckTime();
+    }
+
+    public void ResetEnemy () {
+        active = false;
+        checkCount = 0f;
     }
 
     private void CheckPlots () {
