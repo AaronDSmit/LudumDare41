@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: e2f1345ea9d2eee48b34205c7bc1bcbc
-timeCreated: 1524294169
+guid: 1394dca49a176da41b2de13cd9bdf955
+timeCreated: 1524359002
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Grass
-    2100002: Soil
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Grass_Corner
+    100000: Grass_Str
+    100002: //RootNode
+    400000: Grass_Str
+    400002: //RootNode
+    2100000: Grass_StrMat
+    2300000: Grass_Str
+    3300000: Grass_Str
+    4300000: Grass_Str
   externalObjects: {}
   materials:
     importMaterials: 1
