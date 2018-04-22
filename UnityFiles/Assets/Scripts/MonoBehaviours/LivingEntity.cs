@@ -32,6 +32,8 @@ public class LivingEntity : MonoBehaviour
     {
         currentHealth -= damage;
 
+        currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
+
         if (hpBar != null)
         {
             hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
@@ -47,6 +49,8 @@ public class LivingEntity : MonoBehaviour
     public void TakeDamge()
     {
         currentHealth -= 50;
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
 
         if (hpBar != null)
         {
