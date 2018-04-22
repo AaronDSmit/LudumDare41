@@ -9,11 +9,16 @@ public class Plot : MonoBehaviour
     [SerializeField]
     private Team team;
 
+    public Plant Plant
+    {
+        get { return plant; }
+    }
+
     public void PlacePlant(Plant _plant, Team placedBy)
     {
         if (plant == null && placedBy == team)
         {
-            plant = Instantiate<Plant>(_plant, transform.position + Vector3.up, Quaternion.identity);
+            plant = Instantiate<Plant>(_plant, transform.position + Vector3.up, Quaternion.identity, transform);
             plant.Team = team;
         }
     }

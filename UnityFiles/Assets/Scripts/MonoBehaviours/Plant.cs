@@ -19,21 +19,11 @@ public class Plant : MonoBehaviour
     [SerializeField]
     private Team team;
 
-    private MeshFilter meshFilter;
-
-    private MeshRenderer meshRenderer;
-
     public Team Team
     {
         get { return team; }
 
         set { team = value; }
-    }
-
-    private void Awake()
-    {
-        meshFilter = transform.GetChild(0).GetComponent<MeshFilter>();
-        meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -45,8 +35,8 @@ public class Plant : MonoBehaviour
     {
         if (growthStage < growthStages.Length)
         {
-            meshFilter.mesh = growthStages[growthStage].mesh;
-            meshRenderer.material = growthStages[growthStage].material;
+            transform.localPosition = growthStages[growthStage].localposition;
+            SetGlobalScale(transform, growthStages[growthStage].localScale);
             growthStage++;
 
             Invoke("Grow", growthTime);
@@ -59,11 +49,18 @@ public class Plant : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void SetGlobalScale(Transform _transform, Vector3 globalScale)
+    {
+        _transform.localScale = Vector3.one;
+        _transform.localScale = new Vector3(globalScale.x / _transform.lossyScale.x, globalScale.y / _transform.lossyScale.y, globalScale.z / _transform.lossyScale.z);
+    }
 }
+
 
 [System.Serializable]
 public struct GrowthVisual
 {
-    public Mesh mesh;
-    public Material material;
+    public Vector3 localposition;
+    public Vector3 localScale;
 }

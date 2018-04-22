@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Unit : LivingEntity {
     [Header("Attacking")]
     [SerializeField] private float damage;

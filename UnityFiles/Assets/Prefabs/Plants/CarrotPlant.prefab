@@ -102,11 +102,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4510272649306408}
-  - component: {fileID: 195672370942154306}
-  - component: {fileID: 114880751010073738}
-  - component: {fileID: 65906430996816138}
+  - component: {fileID: 114422054083203252}
   m_Layer: 0
-  m_Name: CarrotMan
+  m_Name: CarrotPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894042311459692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.102, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4741552994015850}
@@ -133,8 +131,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981075226458320}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.66, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4802417811962546}
   - {fileID: 4859718800131456}
@@ -175,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878201679453738}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.102, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4510272649306408}
@@ -188,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193731719765946}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.102, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4684354417854104}
@@ -318,18 +316,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450001088839972}
   m_Mesh: {fileID: 4300000, guid: 9a6d7cbb12efdc44cbe8ee55d991315b, type: 3}
---- !u!65 &65906430996816138
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1981075226458320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!95 &95010273097629770
 Animator:
   serializedVersion: 3
@@ -364,7 +350,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114880751010073738
+--- !u!114 &114422054083203252
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -372,34 +358,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981075226458320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0bcea123f3d75e48b458ea89e2b2997, type: 3}
+  m_Script: {fileID: 11500000, guid: a20910d77aa1e4b469d0fd854e27cfdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  growthStage: 0
+  growthTime: 1
+  growthStages:
+  - localposition: {x: 0, y: -1.06, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+  - localposition: {x: 0, y: -1.2, z: 0}
+    localScale: {x: 1.45, y: 1.45, z: 1.45}
+  - localposition: {x: 0, y: 0, z: 0}
+    localScale: {x: 2, y: 2, z: 2}
+  unitPrefab: {fileID: 114880751010073738, guid: b719bfedb9cd2b74986f4cb949f18e82,
+    type: 2}
   team: 0
-  hpBar: {fileID: 0}
-  damage: 10
-  attackRange: 5
-  attackCooldown: 1
-  detectionRange: 5
---- !u!195 &195672370942154306
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1981075226458320}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
