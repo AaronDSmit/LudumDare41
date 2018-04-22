@@ -5,13 +5,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     [SerializeField] private List<Plant> plantPrefabs;
     [SerializeField] private List<Plot> plots;
-    [SerializeField] private float plotCheckTime;
+    [SerializeField] private float plotCheckTimeMin;
+    [SerializeField] private float plotCheckTimeMax;
 
+    private float currentCheckTime;
     private float checkCount;
     private bool active;
 
     private void Start () {
         active = true;
+        RandomizeCheckTime();
     }
 
     void Update () {
@@ -28,16 +31,15 @@ public class Enemy : MonoBehaviour {
     private void CheckPlots () {
         checkCount += Time.deltaTime;
 
-        if(checkCount >= plotCheckTime) {
+        if(checkCount >= plotCheckTimeMax) {
             checkCount = 0f;
+            RandomizeCheckTime();
             PlacePlant();
         }
     }
 
     private void PlacePlant () {
-        // Check all plots at random
-        // if we can find an empty one plant a plant
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             Plot p = plots[Random.Range(0, plots.Count)];
 
             if(p.Plant == null) {
@@ -45,5 +47,9 @@ public class Enemy : MonoBehaviour {
                 break;
             }
         }
+    }
+
+    private void RandomizeCheckTime () {
+        currentCheckTime = Random.Range(plotCheckTimeMin, plotCheckTimeMax);
     }
 }

@@ -153,7 +153,8 @@ MonoBehaviour:
   - {fileID: 545996042}
   - {fileID: 861461544}
   - {fileID: 1859391813}
-  plotCheckTime: 0
+  plotCheckTimeMin: 1
+  plotCheckTimeMax: 3
 --- !u!4 &23416313
 Transform:
   m_ObjectHideFlags: 0
