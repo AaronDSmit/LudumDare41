@@ -29,7 +29,7 @@ public class LivingEntity : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -38,11 +38,11 @@ public class LivingEntity : MonoBehaviour
     [ContextMenu("TakeDamge")]
     public void TakeDamge()
     {
-        currentHealth -= 1;
+        currentHealth -= 50;
 
         transform.Translate(Vector3.down);
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

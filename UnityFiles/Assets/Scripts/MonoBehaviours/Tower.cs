@@ -10,5 +10,9 @@ public class Tower : LivingEntity
         {
             Player.instance.Lose();
         }
+        else
+        {
+            Player.instance.Win();
+        }
     }
 }
