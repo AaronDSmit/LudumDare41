@@ -165,8 +165,11 @@ public class Unit : LivingEntity
 
     private void UpdateFacing () {
         Vector3 lookPosition = agent.destination - transform.position;
-        lookPosition.y = 0f;
-        Quaternion rotation = Quaternion.LookRotation(lookPosition);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, roationSpeed);
+
+        float step = roationSpeed * Time.deltaTime;
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, lookPosition, step, 0f);
+
+        transform.rotation = Quaternion.LookRotation(newDirection);
     }
 }
