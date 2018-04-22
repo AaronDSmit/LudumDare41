@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour {
     private bool active;
 
     private void Start () {
-        active = true;
-
         plots = new List<Plot>();
 
         Plot[] allPlots = FindObjectsOfType<Plot>();

@@ -1328,9 +1328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdb32c56f333a440af312838d9b2fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  startHealth: 1000
   team: 1
   hpBar: {fileID: 224120108378022072}
+  damaged: {fileID: 0}
 --- !u!114 &114258144665689864
 MonoBehaviour:
   m_ObjectHideFlags: 1

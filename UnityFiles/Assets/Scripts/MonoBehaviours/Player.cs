@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
 
     private Plot selectedPlot;
 
+    private bool gameStarted = false;
+
+    private bool gameEnded = false;
+
+    private Enemy opponent;
+
     private void Awake()
     {
         inControl = true;
@@ -43,6 +49,8 @@ public class Player : MonoBehaviour
             instance = this;
 
             audioSource = GetComponent<AudioSource>();
+
+            opponent = FindObjectOfType<Enemy>();
         }
         else if (instance != this)
         {
@@ -55,23 +63,33 @@ public class Player : MonoBehaviour
 
     public void Lose()
     {
-        WorldText.instance.ShowText(loseText);
-        inControl = false;
-
-        if (loseSound != null)
+        if (!gameEnded)
         {
-            audioSource.PlayOneShot(loseSound);
+            WorldText.instance.ShowText(loseText);
+            inControl = false;
+
+            if (loseSound != null)
+            {
+                audioSource.PlayOneShot(loseSound);
+            }
+
+            gameEnded = true;
         }
     }
 
     public void Win()
     {
-        WorldText.instance.ShowText(winText);
-        inControl = false;
-
-        if (winSound != null)
+        if (!gameEnded)
         {
-            audioSource.PlayOneShot(winSound);
+            WorldText.instance.ShowText(winText);
+            inControl = false;
+
+            if (winSound != null)
+            {
+                audioSource.PlayOneShot(winSound);
+            }
+
+            gameEnded = true;
         }
     }
 
@@ -100,6 +118,23 @@ public class Player : MonoBehaviour
         {
             plots[i].ResetPlot();
         }
+
+        opponent.ResetEnemy();
+
+        gameStarted = false;
+        selectedPlot = null;
+        inControl = true;
+        gameEnded = false;
+    }
+
+    public void HideTutorialUI()
+    {
+        TextPingPong[] tutorialText = FindObjectsOfType<TextPingPong>();
+
+        for (int i = 0; i < tutorialText.Length; i++)
+        {
+            tutorialText[i].gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -122,6 +157,12 @@ public class Player : MonoBehaviour
                 else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
                 {
                     selectedPlot.PlacePlant(plants[0], Team.PLAYER);
+                }
+
+                if (!gameStarted)
+                {
+                    opponent.Activate();
+                    HideTutorialUI();
                 }
             }
             else

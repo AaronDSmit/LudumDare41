@@ -21,13 +21,14 @@ public class Plot : MonoBehaviour
 
     public void ShowPopup()
     {
-        if (plant == null)
+        if (plant == null && placementPopup != null)
             placementPopup.SetActive(true);
     }
 
     public void HidePopup()
     {
-        placementPopup.SetActive(false);
+        if (placementPopup != null)
+            placementPopup.SetActive(false);
     }
 
     public void ResetPlot()
@@ -38,7 +39,7 @@ public class Plot : MonoBehaviour
             plant = null;
         }
 
-        if(placementPopup != null)
+        if (placementPopup != null)
         {
             placementPopup.SetActive(false);
         }
@@ -49,8 +50,10 @@ public class Plot : MonoBehaviour
         get { return plant; }
     }
 
-    public Team Team {
-        get {
+    public Team Team
+    {
+        get
+        {
             return team;
         }
     }
@@ -70,7 +73,10 @@ public class Plot : MonoBehaviour
 
             plant.Team = team;
 
-            placementPopup.SetActive(false);
+            if (placementPopup != null)
+            {
+                placementPopup.SetActive(false);
+            }
         }
     }
 }
