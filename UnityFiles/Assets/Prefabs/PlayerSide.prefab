@@ -4506,6 +4506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114311430970198630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4544,6 +4545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114418904887670264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4571,6 +4573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114463994513709992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4582,6 +4585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114526752817490950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4593,6 +4597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114668659066106400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4604,8 +4609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdb32c56f333a440af312838d9b2fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 0
+  startHealth: 100
   team: 0
+  hpBar: {fileID: 224320092932998362}
 --- !u!114 &114690511220448100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4617,6 +4623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114693446211426574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4628,6 +4635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114721744912243932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4639,6 +4647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!114 &114828431383454176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4698,6 +4707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
 --- !u!136 &136961769628550946
 CapsuleCollider:
   m_ObjectHideFlags: 1
