@@ -54,5 +54,5 @@ MonoBehaviour:
   plants:
   - {fileID: 114471909433870192, guid: 8779c26ba18df304b8940687ef44e523, type: 2}
   currentPlant: 0
-  loseUI: {fileID: 0}
-  winUI: {fileID: 0}
+  loseText: You\nLose
+  winText: You\nWin

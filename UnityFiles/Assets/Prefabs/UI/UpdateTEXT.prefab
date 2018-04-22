@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224363553121282844}
   - component: {fileID: 223149604881225666}
   - component: {fileID: 114490628670846220}
-  - component: {fileID: 114663909102261422}
+  - component: {fileID: 114878111906568722}
   m_Layer: 5
   m_Name: UpdateTEXT
   m_TagString: Untagged
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
---- !u!114 &114663909102261422
+--- !u!114 &114878111906568722
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,14 +169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412316732847536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e83898f52d2e54a94de96115cf6fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  targetHeight: 85
+  animationTime: 5
 --- !u!222 &222277866599411232
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -263,5 +260,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 24.78}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 1}
