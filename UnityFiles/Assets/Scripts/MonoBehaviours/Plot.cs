@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plot : MonoBehaviour {
+public class Plot : MonoBehaviour
+{
+    private Plant plant;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void PlacePlant(Plant _plant)
+    {
+        if (plant == null)
+        {
+            plant = Instantiate<Plant>(_plant, transform.position + Vector3.up, Quaternion.identity);
+        }
+    }
 }
