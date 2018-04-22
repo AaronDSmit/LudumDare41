@@ -19,11 +19,13 @@ public class Unit : LivingEntity {
     private LivingEntity finalTarget;
     private NavMeshAgent agent;
 
-    protected override void Start () {
-        base.Start();
-
+    protected void Awake () {
         canAttack = true;
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    protected override void Start () {
+        base.Start();
 
         Activate(Team.PLAYER);
     }
@@ -51,19 +53,14 @@ public class Unit : LivingEntity {
     }
 
     private void CheckTarget () {
-        // can we see if there is an enemy within our detection range
         LivingEntity closestEnemy = GetClosestEnemyUnit();
 
-        Debug.Log(closestEnemy);
-
         if(closestEnemy != null) {
-            // if so our destination becomes their location
             if (closestEnemy != currentTarget) {
                 currentTarget = closestEnemy;
                 agent.destination = currentTarget.transform.position;
             }
         } else {
-            // if not move to our final destination making sure not to overshoot
             if (currentTarget != finalTarget) {
                 currentTarget = finalTarget;
                 agent.destination = currentTarget.transform.position;
@@ -75,14 +72,12 @@ public class Unit : LivingEntity {
         if (agent.destination == transform.position)
             return;
 
-        if(Vector3.Distance(transform.position, agent.destination) <= attackRange) {
+        if(Vector3.Distance(transform.position, currentTarget.transform.position) < attackRange) {
             agent.destination = transform.position;
         }
     }
 
     private void CheckAttack () {
-        if (currentTarget == null)
-            return;
 
         if(canAttack == false) {
             attackTime += Time.deltaTime;
@@ -92,21 +87,23 @@ public class Unit : LivingEntity {
                 attackTime = 0f;
             }
         } else {
-            if(Vector3.Distance(transform.position, currentTarget.transform.position) <= attackRange) {
-                currentTarget.TakeDamge(damage);
-                canAttack = false;
-            }
+            if(Vector3.Distance(transform.position, currentTarget.transform.position) <= attackRange)
+                Attack();
         }
     }
 
-    private LivingEntity GetClosestEnemyUnit () {
+    private void Attack () {
+        currentTarget.TakeDamge(damage);
+        canAttack = false;
+    }
+
+    private Unit GetClosestEnemyUnit () {
         Collider[] inRangeColliders = Physics.OverlapSphere(transform.position, detectionRange);
-        List<Unit> inRangeUnits = new List<Unit>();
-        LivingEntity closestUnit = null;
+        Unit closestUnit = null;
         float currentRange = float.MaxValue;
 
         for (int i = 0; i < inRangeColliders.Length; i++) {
-            LivingEntity u = inRangeColliders[i].GetComponent<LivingEntity>();
+            Unit u = inRangeColliders[i].GetComponent<Unit>();
 
             if (u == null || u == this || u.Team == Team)
                 continue;
