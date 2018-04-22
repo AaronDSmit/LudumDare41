@@ -255,6 +255,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4412045903801904}
+  - component: {fileID: 65274920575187892}
+  - component: {fileID: 114226978564846116}
   m_Layer: 0
   m_Name: Grass_Chunk_14x14
   m_TagString: Untagged
@@ -5362,6 +5364,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0.5, y: -0.5, z: -1}
+--- !u!65 &65274920575187892
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168457598786144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14, y: 4, z: 14}
+  m_Center: {x: 0, y: -2, z: 0}
 --- !u!65 &65284330281106568
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -5986,3 +6000,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0.5, y: -0.5, z: -1}
+--- !u!114 &114226978564846116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168457598786144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8eb18b556b91b14f9a768b22e7f59b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
