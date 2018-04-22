@@ -11,9 +11,9 @@ public class LivingEntity : MonoBehaviour
     protected float currentHealth;
 
     [SerializeField]
-    private Team team;
+    protected Team team;
 
-    protected Team Team
+    public Team Team
     {
         get { return team; }
 
@@ -29,7 +29,7 @@ public class LivingEntity : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -38,17 +38,17 @@ public class LivingEntity : MonoBehaviour
     [ContextMenu("TakeDamge")]
     public void TakeDamge()
     {
-        currentHealth -= 1;
+        currentHealth -= 50;
 
         transform.Translate(Vector3.down);
 
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
 
     }
