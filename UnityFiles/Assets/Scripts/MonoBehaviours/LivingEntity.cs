@@ -10,6 +10,7 @@ public class LivingEntity : MonoBehaviour
     protected float startHealth;
     protected float currentHealth;
 
+    [SerializeField]
     private Team team;
 
     public Team Team
