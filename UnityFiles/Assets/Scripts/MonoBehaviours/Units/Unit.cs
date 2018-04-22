@@ -26,8 +26,6 @@ public class Unit : LivingEntity {
 
     protected override void Start () {
         base.Start();
-
-        Activate(Team.PLAYER);
     }
 
     public void Activate (Team team) {
