@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthStage: 0
-  growthTime: 1
+  growthTime: 2
   growthStages:
   - localposition: {x: 0, y: -1.06, z: 0}
     localScale: {x: 1, y: 1, z: 1}

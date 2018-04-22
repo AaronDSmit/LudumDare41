@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223025041232341460}
   - component: {fileID: 114846374860598352}
   - component: {fileID: 114490117318022236}
+  - component: {fileID: 114279187024504524}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -62,6 +63,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 0.05, y: 0.05}
   m_UseGraphicAlpha: 1
+--- !u!114 &114279187024504524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391239787960600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714fc4ada80f9b942b24832d4f327ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: 0
+  targetY: 9
+  animationTime: 1
 --- !u!114 &114411690724537608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -22.14, y: 9.93}
+  m_AnchoredPosition: {x: -22.3, y: 10}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224595584911922588

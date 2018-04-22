@@ -60,7 +60,7 @@ public class Plant : MonoBehaviour
         }
         else
         {
-            Unit unit = Instantiate(unitPrefab, new Vector3(transform.position.x, 0.0f, transform.position.z), Quaternion.identity);
+            Unit unit = Instantiate(unitPrefab, new Vector3(transform.position.x, 0.0f, transform.position.z), transform.rotation);
             unit.Activate(Team);
 
             Destroy(gameObject);

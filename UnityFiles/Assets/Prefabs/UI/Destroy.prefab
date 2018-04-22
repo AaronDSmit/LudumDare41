@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 223196738100384350}
   - component: {fileID: 114300317751862524}
   - component: {fileID: 114524463814523884}
+  - component: {fileID: 114203073433844372}
   m_Layer: 5
   m_Name: Destroy
   m_TagString: Untagged
@@ -66,6 +67,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114203073433844372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729934939858112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714fc4ada80f9b942b24832d4f327ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: 23
+  targetY: 0
+  animationTime: 1
 --- !u!114 &114269104816899902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,6 +305,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 24.29, y: 0.23}
+  m_AnchoredPosition: {x: 24, y: 0.23}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
