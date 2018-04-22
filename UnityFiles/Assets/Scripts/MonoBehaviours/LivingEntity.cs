@@ -12,7 +12,7 @@ public class LivingEntity : MonoBehaviour
 
     private Team team;
 
-    protected Team Team
+    public Team Team
     {
         get { return team; }
 
