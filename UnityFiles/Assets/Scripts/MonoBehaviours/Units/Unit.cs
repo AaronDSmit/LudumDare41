@@ -24,10 +24,6 @@ public class Unit : LivingEntity {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    protected override void Start () {
-        base.Start();
-    }
-
     public void Activate (Team team) {
         Team = team;
         active = true;
