@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Team { PLAYER, AI }
+
 public class LivingEntity : MonoBehaviour
 {
     [SerializeField]
     protected float startHealth;
     protected float currentHealth;
+
+    private Team team;
+
+    protected Team Team
+    {
+        get { return team; }
+
+        set { team = value; }
+    }
 
     protected virtual void Start()
     {
