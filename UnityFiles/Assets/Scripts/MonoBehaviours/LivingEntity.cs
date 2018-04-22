@@ -11,7 +11,7 @@ public class LivingEntity : MonoBehaviour
     protected float currentHealth;
 
     [SerializeField]
-    private Team team;
+    protected Team team;
 
     public Team Team
     {
@@ -48,7 +48,7 @@ public class LivingEntity : MonoBehaviour
         }
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
 
     }
