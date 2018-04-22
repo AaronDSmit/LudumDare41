@@ -14,6 +14,12 @@ public class Plot : MonoBehaviour
         get { return plant; }
     }
 
+    public Team Team {
+        get {
+            return team;
+        }
+    }
+
     public void PlacePlant(Plant _plant, Team placedBy)
     {
         if (plant == null && placedBy == team)

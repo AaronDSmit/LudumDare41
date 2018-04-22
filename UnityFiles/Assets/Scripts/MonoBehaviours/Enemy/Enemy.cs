@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     [SerializeField] private List<Plant> plantPrefabs;
-    [SerializeField] private List<Plot> plots;
     [SerializeField] private float plotCheckTimeMin;
     [SerializeField] private float plotCheckTimeMax;
 
+    private List<Plot> plots;
     private float currentCheckTime;
     private float checkCount;
     private bool active;
 
     private void Start () {
         active = true;
+
+        plots = new List<Plot>();
+
+        Plot[] allPlots = FindObjectsOfType<Plot>();
+
+        for (int i = 0; i < allPlots.Length; i++) {
+            if (allPlots[i].Team == Team.AI)
+                plots.Add(allPlots[i]);
+        }
     }
 
     void Update () {

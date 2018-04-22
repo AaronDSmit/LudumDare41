@@ -8,12 +8,12 @@ using UnityEngine.AI;
 public class Unit : LivingEntity
 {
     [Header("Attacking")]
-    [SerializeField]
-    private float damage;
+    [SerializeField] private float damage;
     [SerializeField] private float siloAttackRange;
     [SerializeField] private float unitAttackRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float detectionRange;
+    [SerializeField] private float roationSpeed;
 
     private bool active;
     private bool canAttack;
@@ -97,6 +97,7 @@ public class Unit : LivingEntity
         if (Vector3.Distance(transform.position, currentTarget.transform.position) < currentAttackRange)
         {
             agent.destination = transform.position;
+            UpdateFacing();
         }
     }
 
@@ -160,5 +161,12 @@ public class Unit : LivingEntity
             currentAttackRange = unitAttackRange;
         else
             currentAttackRange = siloAttackRange;
+    }
+
+    private void UpdateFacing () {
+        Vector3 lookPosition = agent.destination - transform.position;
+        lookPosition.y = 0f;
+        Quaternion rotation = Quaternion.LookRotation(lookPosition);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, roationSpeed);
     }
 }
