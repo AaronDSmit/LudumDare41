@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 224235916806011934}
   - component: {fileID: 222904391260195578}
   - component: {fileID: 114820764704809990}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 223892830022115518}
   - component: {fileID: 114756919960797510}
   - component: {fileID: 114771415636359350}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 224514691437931040}
   - component: {fileID: 222506554834883288}
   - component: {fileID: 114940550959556458}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 224749338653119402}
   - component: {fileID: 222858822464230936}
   - component: {fileID: 114920300621305946}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 224458508138932496}
   - component: {fileID: 222931034722109260}
   - component: {fileID: 114577117404936440}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 223694390321156348}
   - component: {fileID: 114549098375079748}
   - component: {fileID: 114949844483101684}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 224564573488380718}
   - component: {fileID: 222026946406238950}
   - component: {fileID: 114321725746816530}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 224569514485207216}
   - component: {fileID: 222997243136613254}
   - component: {fileID: 114134206006499622}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 224414487655487600}
   - component: {fileID: 222020956281722860}
   - component: {fileID: 114829335933047894}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 223248408069428090}
   - component: {fileID: 114931540295464416}
   - component: {fileID: 114295131077234882}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 224719292123795478}
   - component: {fileID: 222153596354330378}
   - component: {fileID: 114881146847725674}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 224550937438172192}
   - component: {fileID: 222259599482383776}
   - component: {fileID: 114242891091148690}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 224976091318896828}
   - component: {fileID: 222537786636612878}
   - component: {fileID: 114360847015329800}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 224425252028986416}
   - component: {fileID: 222696770575174824}
   - component: {fileID: 114071575612099580}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 224166634034725582}
   - component: {fileID: 222529223235677774}
   - component: {fileID: 114547497236719522}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 224012726073414098}
   - component: {fileID: 222139866594387400}
   - component: {fileID: 114269266087962040}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 224097274927523602}
   - component: {fileID: 222699669160332500}
   - component: {fileID: 114620505967129892}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 224278379531351584}
   - component: {fileID: 222734856007887944}
   - component: {fileID: 114496166670850458}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 223319109037890290}
   - component: {fileID: 114433821936530174}
   - component: {fileID: 114397529059768366}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 224549010902855022}
   - component: {fileID: 222403107317589458}
   - component: {fileID: 114066061404640974}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 223304497747487804}
   - component: {fileID: 114277666511067082}
   - component: {fileID: 114827686014938544}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 223624828385644408}
   - component: {fileID: 114222610987597312}
   - component: {fileID: 114062661393679838}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 224102144608930574}
   - component: {fileID: 222955143507779644}
   - component: {fileID: 114299628764928844}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 224787698474823990}
   - component: {fileID: 222407262404463594}
   - component: {fileID: 114242216619830930}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 223259869160755230}
   - component: {fileID: 114084219163604518}
   - component: {fileID: 114184322602786934}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 223215045051057238}
   - component: {fileID: 114234289139812034}
   - component: {fileID: 114534605801759034}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 223268583633628606}
   - component: {fileID: 114021221933588270}
   - component: {fileID: 114503197327293924}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PlacementPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3455,6 +3455,7 @@ MonoBehaviour:
   startHealth: 100
   team: 0
   hpBar: {fileID: 224320092932998362}
+  damaged: {fileID: 0}
 --- !u!114 &114672818320653398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4641,7 +4642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224127635931272374
@@ -4651,7 +4652,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247763086825616}
   m_LocalRotation: {x: 0.23911709, y: 0.3696432, z: -0.09904578, w: 0.8923995}
-  m_LocalPosition: {x: 0, y: 0, z: 1.9}
+  m_LocalPosition: {x: 0, y: 0, z: 2.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224166634034725582}
@@ -4661,7 +4662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.7299995, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224166634034725582
@@ -4708,7 +4709,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958630131734912}
   m_LocalRotation: {x: 0.23911709, y: 0.3696432, z: -0.09904578, w: 0.8923995}
-  m_LocalPosition: {x: 0, y: 0, z: 6.33}
+  m_LocalPosition: {x: 0, y: 0, z: 2.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224976091318896828}
@@ -4718,7 +4719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224235916806011934
@@ -4830,7 +4831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224319741706755132
@@ -4904,7 +4905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224414487655487600
@@ -4943,7 +4944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224425252028986416
@@ -4972,7 +4973,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1855346811218710}
   m_LocalRotation: {x: 0.23911709, y: 0.3696432, z: -0.09904578, w: 0.8923995}
-  m_LocalPosition: {x: 0, y: 0, z: 1.94}
+  m_LocalPosition: {x: 0, y: 0, z: 2.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224550937438172192}
@@ -4982,7 +4983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.7299995, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224458508138932496
@@ -5021,7 +5022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224514691437931040
@@ -5321,7 +5322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.73, y: 0.81}
+  m_AnchoredPosition: {x: 1.85, y: 0.81}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224818480613222724

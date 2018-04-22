@@ -15,4 +15,14 @@ public class Tower : LivingEntity
             Player.instance.Win();
         }
     }
+
+    public void ResetTower()
+    {
+        currentHealth = startHealth;
+
+        if (hpBar != null)
+        {
+            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
+        }
+    }
 }

@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
     private AudioClip loseSound;
 
     private AudioSource audioSource;
+
+    private Plot selectedPlot;
 
     private void Awake()
     {
@@ -72,20 +75,86 @@ public class Player : MonoBehaviour
         }
     }
 
+    [ContextMenu("ResetGame")]
+    public void ResetGame()
+    {
+        // GameObject.FindGameObjectWithTag();
+
+        Tower[] towers = FindObjectsOfType<Tower>();
+
+        for (int i = 0; i < towers.Length; i++)
+        {
+            towers[i].ResetTower();
+        }
+
+        Unit[] units = FindObjectsOfType<Unit>();
+
+        for (int i = 0; i < units.Length; i++)
+        {
+            Destroy(units[i].gameObject);
+        }
+
+        Plot[] plots = FindObjectsOfType<Plot>();
+
+        for (int i = 0; i < plots.Length; i++)
+        {
+            plots[i].ResetPlot();
+        }
+    }
+
     private void Update()
     {
-        if (inControl && Input.GetMouseButton(0))
+        if (inControl && Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
 
-            if (Physics.Raycast(ray, out hit))
+            pointerData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            if (results.Count > 0)
             {
-                Plot plot = hit.transform.GetComponent<Plot>();
-
-                if (plot != null)
+                if (results[0].gameObject.layer == LayerMask.NameToLayer("CarrotUI"))
                 {
-                    plot.PlacePlant(plants[Random.Range(0, 2)], Team.PLAYER);
+                    selectedPlot.PlacePlant(plants[1], Team.PLAYER);
+                }
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
+                {
+                    selectedPlot.PlacePlant(plants[0], Team.PLAYER);
+                }
+            }
+            else
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Plot plot = hit.transform.GetComponent<Plot>();
+
+                    if (plot != null)
+                    {
+                        if (selectedPlot == null)
+                        {
+                            selectedPlot = plot;
+                            selectedPlot.ShowPopup();
+                        }
+                        else
+                        {
+                            selectedPlot.HidePopup();
+
+                            if (selectedPlot != plot)
+                            {
+                                selectedPlot = plot;
+                                selectedPlot.ShowPopup();
+                            }
+                            else
+                            {
+                                selectedPlot = null;
+                            }
+                        }
+                    }
                 }
             }
         }
