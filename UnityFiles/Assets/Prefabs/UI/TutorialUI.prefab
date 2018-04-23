@@ -247,6 +247,8 @@ MonoBehaviour:
   targetX: -14
   targetY: 0
   animationTime: 1
+  fadeTime: 1
+  initialDisplayDelay: 2
 --- !u!114 &114236391852115326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,6 +406,8 @@ MonoBehaviour:
   targetX: 0
   targetY: 9
   animationTime: 1
+  fadeTime: 1
+  initialDisplayDelay: 2
 --- !u!114 &114542400263174836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,6 +566,8 @@ MonoBehaviour:
   targetX: 23
   targetY: 0
   animationTime: 1
+  fadeTime: 1
+  initialDisplayDelay: 2
 --- !u!114 &114857293117126270
 MonoBehaviour:
   m_ObjectHideFlags: 1

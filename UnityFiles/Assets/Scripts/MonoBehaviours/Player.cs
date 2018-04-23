@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
 
     private Enemy opponent;
 
+    private GameObject arrowTutorialUI;
+
     private void Awake()
     {
         inControl = true;
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
             }
 
             gameEnded = true;
+            Invoke("ResetGame", 2.0f);
         }
     }
 
@@ -90,6 +93,8 @@ public class Player : MonoBehaviour
             }
 
             gameEnded = true;
+
+            Invoke("ResetGame", 2.0f);
         }
     }
 
@@ -105,18 +110,18 @@ public class Player : MonoBehaviour
             towers[i].ResetTower();
         }
 
-        Unit[] units = FindObjectsOfType<Unit>();
-
-        for (int i = 0; i < units.Length; i++)
-        {
-            Destroy(units[i].gameObject);
-        }
-
         Plot[] plots = FindObjectsOfType<Plot>();
 
         for (int i = 0; i < plots.Length; i++)
         {
             plots[i].ResetPlot();
+        }
+
+        Unit[] units = FindObjectsOfType<Unit>();
+
+        for (int i = 0; i < units.Length; i++)
+        {
+            Destroy(units[i].gameObject);
         }
 
         opponent.ResetEnemy();
@@ -125,6 +130,8 @@ public class Player : MonoBehaviour
         selectedPlot = null;
         inControl = true;
         gameEnded = false;
+
+        ShowTutorialUI();
     }
 
     public void HideTutorialUI()
@@ -133,7 +140,20 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < tutorialText.Length; i++)
         {
-            tutorialText[i].gameObject.SetActive(false);
+            if (tutorialText[i].transform.name == "Arrow")
+            {
+                arrowTutorialUI = tutorialText[i].gameObject;
+            }
+
+            tutorialText[i].FadeOut();
+        }
+    }
+
+    public void ShowTutorialUI()
+    {
+        if (arrowTutorialUI != null)
+        {
+            arrowTutorialUI.SetActive(true);
         }
     }
 
@@ -163,6 +183,7 @@ public class Player : MonoBehaviour
                 {
                     opponent.Activate();
                     HideTutorialUI();
+                    gameStarted = true;
                 }
             }
             else
