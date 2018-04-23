@@ -40,6 +40,14 @@ public class LivingEntity : MonoBehaviour
         currentHealth = startHealth;
     }
 
+    public virtual void HealDamage (float heal) {
+        currentHealth += heal;
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
+
+        UpdateHealthBar();
+    }
+
     public void TakeDamge(float damage)
     {
         currentHealth -= damage;
@@ -51,10 +59,7 @@ public class LivingEntity : MonoBehaviour
             audioSource.PlayOneShot(damaged);
         }
 
-        if (hpBar != null)
-        {
-            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
-        }
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
@@ -69,10 +74,7 @@ public class LivingEntity : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
 
-        if (hpBar != null)
-        {
-            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
-        }
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
@@ -83,5 +85,11 @@ public class LivingEntity : MonoBehaviour
     protected virtual void Die()
     {
 
+    }
+
+    protected void UpdateHealthBar () {
+        if (hpBar != null) {
+            hpBar.localScale = new Vector3(currentHealth / startHealth, 1, 1);
+        }
     }
 }
