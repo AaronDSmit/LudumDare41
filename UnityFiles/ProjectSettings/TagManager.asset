@@ -15,10 +15,10 @@ TagManager:
   - 
   - BeetUI
   - CarrotUI
-  - 
-  - 
-  - 
-  - 
+  - OptionsUI
+  - AudioButton
+  - CamShakeButton
+  - QuitButton
   - 
   - 
   - 

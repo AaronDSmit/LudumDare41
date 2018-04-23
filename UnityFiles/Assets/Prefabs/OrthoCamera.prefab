@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4855087569479874}
+  - component: {fileID: 114221382835439496}
   m_Layer: 0
   m_Name: OrthoCamera
   m_TagString: Untagged
@@ -50,14 +51,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346856149604964}
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 30, y: 5, z: 30}
+  m_LocalRotation: {x: 0.23911768, y: 0.36964387, z: -0.09904576, w: 0.89239913}
+  m_LocalPosition: {x: -2.64, y: 5, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4971983447249846}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
 --- !u!4 &4971983447249846
 Transform:
   m_ObjectHideFlags: 1
@@ -80,7 +81,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.52054495, g: 0.85294116, b: 0.8254325, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -91,7 +92,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 18.22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -114,6 +115,22 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881726195776978}
   m_Enabled: 1
+--- !u!114 &114221382835439496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346856149604964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9c67e92608e124284519d4dd6f4212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
+  kickBackDuration: 0.1
+  kickBackAmount: 1
 --- !u!124 &124357011673086386
 Behaviour:
   m_ObjectHideFlags: 1

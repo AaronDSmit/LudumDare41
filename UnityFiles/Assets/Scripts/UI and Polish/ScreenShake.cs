@@ -28,23 +28,28 @@ public class ScreenShake : MonoBehaviour
 
     private bool kickedBacked = false;
 
+    public static ScreenShake instance = null;
+
+    private void Awake()
+    {
+        // Check if instance already exists, if there isn't set instance to this otherwise destroy this.
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        // Persistent between scene loading
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void OnEnable()
     {
         originalPos = transform.localPosition;
         shakeTime = shakeDuration;
-    }
-
-    public void KickBack()
-    {
-        if (!kickedBacked)
-        {
-            StartCoroutine(KickBackCam(originalPos, originalPos + Vector3.back * kickBackAmount, kickBackDuration));
-            kickedBacked = true;
-        }
-        else
-        {
-            Debug.Log("already being kicked back");
-        }
     }
 
     public void Shake()
@@ -54,33 +59,6 @@ public class ScreenShake : MonoBehaviour
             StartCoroutine(ShakeCam());
             shaking = true;
         }
-    }
-
-    private IEnumerator KickBackCam(Vector3 from, Vector3 to, float time)
-    {
-        float speed = 1 / time;
-        float percent = 0;
-
-        while (percent < 1)
-        {
-            percent += Time.deltaTime * speed;
-            transform.localPosition = Vector3.Lerp(from, to, percent);
-
-            yield return null;
-        }
-
-        speed = 1 / time;
-        percent = 0;
-
-        while (percent < 1)
-        {
-            percent += Time.deltaTime * speed;
-            transform.localPosition = Vector3.Lerp(to, from, percent);
-
-            yield return null;
-        }
-
-        kickedBacked = false;
     }
 
     private IEnumerator ShakeCam()

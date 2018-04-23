@@ -173,17 +173,40 @@ public class Player : MonoBehaviour
                 if (results[0].gameObject.layer == LayerMask.NameToLayer("CarrotUI"))
                 {
                     selectedPlot.PlacePlant(plants[1], Team.PLAYER);
+
+                    if (!gameStarted)
+                    {
+                        opponent.Activate();
+                        HideTutorialUI();
+                        gameStarted = true;
+                    }
                 }
                 else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
                 {
                     selectedPlot.PlacePlant(plants[0], Team.PLAYER);
-                }
 
-                if (!gameStarted)
+                    if (!gameStarted)
+                    {
+                        opponent.Activate();
+                        HideTutorialUI();
+                        gameStarted = true;
+                    }
+                }
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("OptionsUI"))
                 {
-                    opponent.Activate();
-                    HideTutorialUI();
-                    gameStarted = true;
+                    results[0].gameObject.GetComponentInParent<OptionsUI>().TogglePullDown();
+                }
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("AudioButton"))
+                {
+                    results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleAudio();
+                }
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("CamShakeButton"))
+                {
+                    results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleCamShake();
+                }
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("QuitButton"))
+                {
+                    Application.Quit();
                 }
             }
             else
