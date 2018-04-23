@@ -241,6 +241,15 @@ public class Player : MonoBehaviour
                 {
                     Application.Quit();
                 }
+				else if(results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup")) 
+				{
+					Grain g = results[0].gameObject.GetComponentInParent<Grain>();
+					seedCount += g.GrainValue;
+					seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
+					seedCountUI.text = "" + seedCount;
+
+					g.Interact();
+				}
             }
             else
             {

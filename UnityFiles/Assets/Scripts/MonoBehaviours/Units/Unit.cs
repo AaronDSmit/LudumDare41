@@ -15,7 +15,11 @@ public class Unit : LivingEntity
     [SerializeField] private float detectionRange;
     [SerializeField] private float roationSpeed;
 
-    private bool active;
+	[Header("Grain")]
+	[SerializeField] private GameObject grainPrefab;
+	[SerializeField] private float yAddition;
+
+	private bool active;
     private bool canAttack;
     private float attackTime;
 
@@ -66,6 +70,10 @@ public class Unit : LivingEntity
 
     protected override void Die()
     {
+		GameObject g = Instantiate(grainPrefab, transform.position, Quaternion.identity);
+
+		Vector3 location = new Vector3(transform.position.x, transform.position.y + yAddition, transform.position.z);
+		g.transform.position = location;
         Destroy(gameObject);
     }
 

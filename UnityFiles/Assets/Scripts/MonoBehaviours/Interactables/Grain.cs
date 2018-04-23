@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Grain : Interactable {
-    [SerializeField] private float value;
+    [SerializeField] private int grainValue;
     [SerializeField] private float existsTime;
 
     private Tower playerTower;
@@ -11,7 +11,13 @@ public class Grain : Interactable {
 
     private float currentExistsTime;
 
-    private void Awake () {
+	public int GrainValue {
+		get {
+			return grainValue;
+		}
+	}
+
+	private void Awake () {
         Tower[] towers = FindObjectsOfType<Tower>();
 
         for (int i = 0; i < towers.Length; i++) {
@@ -27,7 +33,6 @@ public class Grain : Interactable {
     }
 
     public override void Interact () {
-        playerTower.HealDamage(value);
         StartCoroutine(Remove());
     }
 
@@ -39,7 +44,7 @@ public class Grain : Interactable {
     }
 
     private void GiveToEnemy () {
-        enemyTower.HealDamage(value);
+        enemyTower.HealDamage(grainValue);
         StartCoroutine(Remove());
     }
 

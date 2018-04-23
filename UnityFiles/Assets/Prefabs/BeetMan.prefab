@@ -466,6 +466,9 @@ MonoBehaviour:
   attackCooldown: 1
   detectionRange: 7
   roationSpeed: 2
+  grainPrefab: {fileID: 1239617520890932, guid: 9384622e8b6690a4a97e4ff3175e7088,
+    type: 2}
+  yAddition: 5
   activated: {fileID: 8300000, guid: 855eb62b014640446accd6077c6019a3, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195796603177639182
@@ -478,9 +481,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 200
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 100
+  m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
