@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour {
 
 	public void GiveGrain(int amount) {
 		currentGrain += amount;
+		currentGrain = Mathf.Clamp(currentGrain, 0, startingGrainCount);
 		UpdateGrainUI();
 	}
 
@@ -70,7 +71,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void TryPlacePlant () {
-		if (currentGrain <= minGrainCount)
+		if (currentGrain <= minGrainCount || currentGrain < plantCost)
 			return;
 
 		currentGrain -= plantCost;
