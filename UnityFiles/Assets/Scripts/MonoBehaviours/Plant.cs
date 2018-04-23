@@ -53,7 +53,7 @@ public class Plant : MonoBehaviour
 
             if (growthSound != null)
             {
-                audioSource.pitch = growthStages[growthStage].pitch;
+             //   audioSource.pitch = growthStages[growthStage].pitch;
                 audioSource.PlayOneShot(growthSound);
             }
 

@@ -55,10 +55,14 @@ public class Unit : LivingEntity
         if (active == false)
             return;
 
+		if (agent.isStopped)
+			agent.isStopped = false;
+
         CheckTarget();
         CheckDistance();
         CheckAttack();
-    }
+		UpdateFacing();
+	}
 
     protected override void Die()
     {
@@ -75,17 +79,18 @@ public class Unit : LivingEntity
             {
                 currentTarget = closestEnemy;
                 UpdateAttackRange();
-                agent.destination = currentTarget.transform.position;
             }
-        }
+
+			agent.SetDestination(currentTarget.transform.position);
+		}
         else
         {
             if (currentTarget != finalTarget)
             {
                 currentTarget = finalTarget;
                 UpdateAttackRange();
-                agent.destination = currentTarget.transform.position;
-            }
+				agent.SetDestination(currentTarget.transform.position);
+			}
         }
     }
 
@@ -96,9 +101,9 @@ public class Unit : LivingEntity
 
         if (Vector3.Distance(transform.position, currentTarget.transform.position) < currentAttackRange)
         {
-            agent.destination = transform.position;
-            UpdateFacing();
-        }
+			agent.isStopped = true;
+			agent.velocity = Vector3.zero;
+		}
     }
 
     private void CheckAttack()
