@@ -48,7 +48,7 @@ public class LivingEntity : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void TakeDamge(float damage)
+    public virtual void TakeDamge(float damage)
     {
         currentHealth -= damage;
 

@@ -19,6 +19,9 @@ public class Unit : LivingEntity
 	[SerializeField] private GameObject grainPrefab;
 	[SerializeField] private float yAddition;
 
+    [Header("Particles")]
+    [SerializeField] private GameObject hitParticle;
+
 	private bool active;
     private bool canAttack;
     private float attackTime;
@@ -54,6 +57,13 @@ public class Unit : LivingEntity
         agent.SetDestination(currentTarget.transform.position);
     }
 
+    public override void TakeDamge (float damage) {
+        base.TakeDamge(damage);
+
+        if(hitParticle != null)
+            Instantiate(hitParticle, transform.position, hitParticle.transform.localRotation);
+    }
+
     private void Update()
     {
         if (active == false)
@@ -70,7 +80,7 @@ public class Unit : LivingEntity
 
     protected override void Die()
     {
-		GameObject g = Instantiate(grainPrefab, transform.position, Quaternion.identity);
+		GameObject g = Instantiate(grainPrefab, transform.position, grainPrefab.transform.localRotation);
 
 		Vector3 location = new Vector3(transform.position.x, transform.position.y + yAddition, transform.position.z);
 		g.transform.position = location;

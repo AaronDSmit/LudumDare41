@@ -947,6 +947,10 @@ Prefab:
       propertyPath: damaged
       value: 
       objectReference: {fileID: 8300000, guid: 4ff2dbcb46d18394facfc4135ab3ef0e, type: 3}
+    - target: {fileID: 1658147611121870, guid: f5bea30aeb325d9458ae77f8228ced45, type: 2}
+      propertyPath: m_TagString
+      value: EnemySeedCountUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5bea30aeb325d9458ae77f8228ced45, type: 2}
   m_IsPrefabParent: 0
