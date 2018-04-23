@@ -3594,7 +3594,7 @@ MonoBehaviour:
   startHealth: 1000
   team: 0
   hpBar: {fileID: 224320092932998362}
-  damaged: {fileID: 0}
+  damaged: {fileID: 8300000, guid: 4ff2dbcb46d18394facfc4135ab3ef0e, type: 3}
 --- !u!114 &114672818320653398
 MonoBehaviour:
   m_ObjectHideFlags: 1

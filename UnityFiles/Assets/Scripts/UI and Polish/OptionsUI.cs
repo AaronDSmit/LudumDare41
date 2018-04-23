@@ -20,16 +20,16 @@ public class OptionsUI : MonoBehaviour
     private RectTransform arrowButton;
 
     [SerializeField]
-    private GameObject CamShakeButton;
+    private Transform CamShakeButton;
 
     [SerializeField]
-    private GameObject audioButton;
+    private Transform audioButton;
 
     private ScreenShake camShake;
 
-    private bool audioOn;
+    private bool audioOn = true;
 
-    private bool camShakeOn;
+    private bool camShakeOn = true;
 
 
     private void Awake()
@@ -47,6 +47,9 @@ public class OptionsUI : MonoBehaviour
         audioOn = !audioOn;
 
         AudioListener.volume = (audioOn) ? 1.0f : 0.0f;
+
+        audioButton.GetChild(0).gameObject.SetActive(audioOn);
+        audioButton.GetChild(1).gameObject.SetActive(!audioOn);
     }
 
     public void ToggleCamShake()
@@ -54,6 +57,9 @@ public class OptionsUI : MonoBehaviour
         camShakeOn = !camShakeOn;
 
         camShake.enabled = camShakeOn;
+
+        CamShakeButton.GetChild(0).gameObject.SetActive(camShakeOn);
+        CamShakeButton.GetChild(1).gameObject.SetActive(!camShakeOn);
     }
 
     public void TogglePullDown()

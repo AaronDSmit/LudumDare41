@@ -139,4 +139,4 @@ MonoBehaviour:
   loseText: DEFEAT
   winText: VICTORY
   winSound: {fileID: 0}
-  loseSound: {fileID: 0}
+  loseSound: {fileID: 8300000, guid: 757f0b166b3fffd41b108c00b2064969, type: 3}

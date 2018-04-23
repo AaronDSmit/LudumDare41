@@ -466,7 +466,7 @@ MonoBehaviour:
   attackCooldown: 1
   detectionRange: 5
   roationSpeed: 2
-  activated: {fileID: 8300000, guid: 74739a14590c12b45afe2011de235f40, type: 3}
+  activated: {fileID: 8300000, guid: 855eb62b014640446accd6077c6019a3, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195672370942154306
 NavMeshAgent:

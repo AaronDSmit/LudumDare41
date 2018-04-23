@@ -40,9 +40,8 @@ GameObject:
   - component: {fileID: 222911206001123946}
   - component: {fileID: 114652609746507884}
   - component: {fileID: 114185843606445738}
-  - component: {fileID: 114555678335084054}
-  m_Layer: 5
-  m_Name: panel
+  m_Layer: 10
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +60,7 @@ GameObject:
   - component: {fileID: 114043363950234822}
   - component: {fileID: 114915675648118748}
   - component: {fileID: 114248179044133076}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: AudioPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +98,7 @@ GameObject:
   - component: {fileID: 114169226249782062}
   - component: {fileID: 114434114596160798}
   - component: {fileID: 114066347447636254}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: CamPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +190,7 @@ GameObject:
   - component: {fileID: 114167805070208512}
   - component: {fileID: 114226109800762714}
   - component: {fileID: 114308200210280514}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: QuitPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,6 +226,7 @@ GameObject:
   - component: {fileID: 114519343294179918}
   - component: {fileID: 114701213766412340}
   - component: {fileID: 222780154581371878}
+  - component: {fileID: 114525628286675526}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -695,6 +695,22 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
+--- !u!114 &114525628286675526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654009603678180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224331db0ba6ae74f9b4a79d1a210f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetY: 23
+  animationTime: 0.5
+  arrowButton: {fileID: 224055241687190110}
+  CamShakeButton: {fileID: 224127576964228678}
+  audioButton: {fileID: 224205380120482886}
 --- !u!114 &114555268976755000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,47 +725,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.259}
   m_EffectDistance: {x: 0.3, y: -0.3}
   m_UseGraphicAlpha: 1
---- !u!114 &114555678335084054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1062967411936856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 114652609746507884}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114617453225196580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -888,7 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1176,7 +1151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30.000002, y: 45.000004, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -15.853743, y: 28.999817}
+  m_AnchoredPosition: {x: -15.853743, y: 28}
   m_SizeDelta: {x: 20.48, y: 8.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224205380120482886
@@ -1296,7 +1271,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573202102639472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224205380120482886}
@@ -1307,8 +1282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.413}
-  m_SizeDelta: {x: 0, y: -0.826}
+  m_AnchoredPosition: {x: 0, y: 0.32075}
+  m_SizeDelta: {x: 0, y: 1.3585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224867416813979344
 RectTransform:

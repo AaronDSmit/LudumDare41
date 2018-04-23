@@ -21,6 +21,7 @@ public class Plant : MonoBehaviour
     private Team team;
 
     [Header("Audio Clips")]
+    [SerializeField]
     private AudioClip growthSound;
 
     private AudioSource audioSource;
