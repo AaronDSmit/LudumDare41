@@ -12,11 +12,20 @@ public class WorldText : MonoBehaviour
 
     private RectTransform image;
 
+    private Image retryButton;
+    private Text retryText;
+
     [SerializeField]
     private float targetHeight;
 
     [SerializeField]
+    private float fadeInTime;
+
+    [SerializeField]
     private float animationTime;
+
+    [SerializeField]
+    private float retryButtonDisplayDelay;
 
     private void Awake()
     {
@@ -27,6 +36,9 @@ public class WorldText : MonoBehaviour
 
             message = GetComponentInChildren<Text>();
             image = transform.GetChild(0).GetComponent<RectTransform>();
+
+            retryButton = transform.GetChild(1).GetComponentInChildren<Image>();
+            retryText = transform.GetChild(1).GetComponentInChildren<Text>();
         }
         else if (instance != this)
         {
@@ -43,6 +55,12 @@ public class WorldText : MonoBehaviour
         StartCoroutine(Animate());
     }
 
+    [ContextMenu("ShowRetryButton")]
+    public void ShowRetryButton()
+    {
+        StartCoroutine(FadeUI(Color.clear, Color.white, fadeInTime));
+    }
+
     private void Start()
     {
         ShowText("Farm\nFight");
@@ -54,6 +72,11 @@ public class WorldText : MonoBehaviour
         {
             ShowText("You\nWin");
         }
+    }
+
+    public void ResetUI()
+    {
+        retryButton.gameObject.SetActive(false);
     }
 
     private IEnumerator Animate()
@@ -72,5 +95,34 @@ public class WorldText : MonoBehaviour
         }
 
         image.gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator FadeUI(Color from, Color to, float time)
+    {
+        yield return new WaitForSeconds(retryButtonDisplayDelay);
+
+        retryButton.gameObject.SetActive(true);
+
+        float speed = 1 / time;
+        float percent = 0;
+
+        while (percent < 1)
+        {
+            percent += Time.deltaTime * speed;
+
+            if (retryButton)
+            {
+                retryButton.color = new Color(retryButton.color.r, retryButton.color.g, retryButton.color.b, Mathf.Lerp(from.a, to.a, percent));
+            }
+
+            if (retryText)
+            {
+                retryText.color = new Color(retryText.color.r, retryText.color.g, retryText.color.b, Mathf.Lerp(from.a, to.a, percent));
+            }
+
+            yield return null;
+        }
+
     }
 }

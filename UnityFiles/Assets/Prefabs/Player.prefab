@@ -108,7 +108,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -135,8 +135,8 @@ MonoBehaviour:
   plants:
   - {fileID: 114697893925622394, guid: 3be96a6ec5a6080438e7f84c56bd774d, type: 2}
   - {fileID: 114422054083203252, guid: b8f157111bcf1094998320e9ffb7471f, type: 2}
-  startSeedCount: 10
-  plantCost: 2
+  startSeedCount: 100
+  plantCost: 1
   intialStartDelay: 2
   loseText: DEFEAT
   winText: VICTORY

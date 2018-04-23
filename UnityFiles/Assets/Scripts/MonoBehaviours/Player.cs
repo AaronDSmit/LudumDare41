@@ -104,7 +104,8 @@ public class Player : MonoBehaviour
             }
 
             gameEnded = true;
-            Invoke("ResetGame", 2.0f);
+
+            WorldText.instance.ShowRetryButton();
         }
     }
 
@@ -122,15 +123,12 @@ public class Player : MonoBehaviour
 
             gameEnded = true;
 
-            Invoke("ResetGame", 2.0f);
+            WorldText.instance.ShowRetryButton();
         }
     }
 
-    [ContextMenu("ResetGame")]
     public void ResetGame()
     {
-        // GameObject.FindGameObjectWithTag();
-
         Tower[] towers = FindObjectsOfType<Tower>();
 
         for (int i = 0; i < towers.Length; i++)
@@ -154,10 +152,15 @@ public class Player : MonoBehaviour
 
         opponent.ResetEnemy();
 
+        WorldText.instance.ResetUI();
+
         gameStarted = false;
         selectedPlot = null;
         inControl = true;
         gameEnded = false;
+
+        seedCount = startSeedCount;
+        seedCountUI.text = "" + seedCount;
 
         ShowTutorialUI();
     }
@@ -187,15 +190,23 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+
+        pointerData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        if (results.Count > 0)
+        {
+            if (results[0].gameObject.layer == LayerMask.NameToLayer("RetryUI"))
+            {
+                ResetGame();
+            }
+        }
+
         if (inControl && Input.GetMouseButtonDown(0))
         {
-            PointerEventData pointerData = new PointerEventData(EventSystem.current);
-
-            pointerData.position = Input.mousePosition;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
-
             if (results.Count > 0)
             {
                 if (results[0].gameObject.layer == LayerMask.NameToLayer("CarrotUI"))
@@ -241,15 +252,15 @@ public class Player : MonoBehaviour
                 {
                     Application.Quit();
                 }
-				else if(results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup")) 
-				{
-					Grain g = results[0].gameObject.GetComponentInParent<Grain>();
-					seedCount += g.GrainValue;
-					seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
-					seedCountUI.text = "" + seedCount;
+                else if (results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup"))
+                {
+                    Grain g = results[0].gameObject.GetComponentInParent<Grain>();
+                    seedCount += g.GrainValue;
+                    seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
+                    seedCountUI.text = "" + seedCount;
 
-					g.Interact();
-				}
+                    g.Interact();
+                }
             }
             else
             {
