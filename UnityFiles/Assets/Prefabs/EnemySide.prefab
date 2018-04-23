@@ -291,6 +291,8 @@ GameObject:
   - component: {fileID: 224840512036407646}
   - component: {fileID: 222184206503374758}
   - component: {fileID: 114487431061764884}
+  - component: {fileID: 114998120319303100}
+  - component: {fileID: 114015875333263990}
   m_Layer: 5
   m_Name: Seedicon
   m_TagString: Untagged
@@ -1373,6 +1375,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &114015875333263990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535890697793574}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.7490196, g: 0.4901961, b: 0.49803925, a: 1}
+  m_EffectDistance: {x: 0.05, y: 0.05}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114058872410800346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1491,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9077079, b: 0.52205884, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1715,6 +1731,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+--- !u!114 &114998120319303100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535890697793574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.45882356, g: 0.27450982, b: 0.16078432, a: 1}
+  m_EffectDistance: {x: -0.1, y: -0.05}
+  m_UseGraphicAlpha: 1
 --- !u!136 &136857457466940898
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1911,13 +1941,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535890697793574}
-  m_LocalRotation: {x: -0.40832525, y: -0.2246036, z: 0.05287728, w: 0.88319176}
+  m_LocalRotation: {x: -0.4353735, y: -0.26296344, z: 0.17743078, w: 0.8425073}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224771390098007302}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -44.227, y: -37.873, z: 22.725}
+  m_LocalEulerAnglesHint: {x: -39.814003, y: -51.077003, z: 43.418003}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -6.29, y: 0.25}
