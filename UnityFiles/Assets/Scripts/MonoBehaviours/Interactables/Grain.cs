@@ -9,6 +9,8 @@ public class Grain : Interactable {
     private Tower playerTower;
     private Tower enemyTower;
 
+	private Enemy enemy;
+
     private float currentExistsTime;
 
 	public int GrainValue {
@@ -26,6 +28,8 @@ public class Grain : Interactable {
             else
                 enemyTower = towers[i];
         }
+
+		enemy = FindObjectOfType<Enemy>();
     }
 
     private void Update () {
@@ -44,7 +48,7 @@ public class Grain : Interactable {
     }
 
     private void GiveToEnemy () {
-        enemyTower.HealDamage(grainValue);
+		enemy.GiveGrain(grainValue);
         StartCoroutine(Remove());
     }
 
