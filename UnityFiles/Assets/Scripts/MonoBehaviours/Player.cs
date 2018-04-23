@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
@@ -11,8 +12,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Plant[] plants;
 
-    [SerializeField]
     private int currentPlant;
+
+    [SerializeField]
+    private int startSeedCount;
+
+    [SerializeField]
+    private int plantCost;
+
+    [SerializeField]
+    private float intialStartDelay;
+
+    private Text seedCountUI;
 
     [SerializeField]
     private string loseText;
@@ -21,6 +32,8 @@ public class Player : MonoBehaviour
     private string winText;
 
     private bool inControl;
+
+    private int seedCount;
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -43,7 +56,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        inControl = true;
+        inControl = false;
 
         // Check if instance already exists, if there isn't set instance to this otherwise destroy this.
         if (instance == null)
@@ -53,6 +66,11 @@ public class Player : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
 
             opponent = FindObjectOfType<Enemy>();
+
+            seedCount = startSeedCount;
+
+            seedCountUI = GameObject.FindGameObjectWithTag("PlayerSeedCountUI").GetComponent<Text>();
+            seedCountUI.text = "" + seedCount;
         }
         else if (instance != this)
         {
@@ -61,6 +79,16 @@ public class Player : MonoBehaviour
 
         // Persistent between scene loading
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Invoke("GainControl", intialStartDelay);
+    }
+
+    private void GainControl()
+    {
+        inControl = true;
     }
 
     public void Lose()
@@ -174,6 +202,9 @@ public class Player : MonoBehaviour
                 {
                     selectedPlot.PlacePlant(plants[1], Team.PLAYER);
 
+                    seedCount -= plantCost;
+                    seedCountUI.text = "" + seedCount;
+
                     if (!gameStarted)
                     {
                         opponent.Activate();
@@ -184,6 +215,8 @@ public class Player : MonoBehaviour
                 else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
                 {
                     selectedPlot.PlacePlant(plants[0], Team.PLAYER);
+                    seedCount -= plantCost;
+                    seedCountUI.text = "" + seedCount;
 
                     if (!gameStarted)
                     {
@@ -211,32 +244,35 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
+                if (seedCount >= plantCost)
                 {
-                    Plot plot = hit.transform.GetComponent<Plot>();
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
 
-                    if (plot != null)
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        if (selectedPlot == null)
-                        {
-                            selectedPlot = plot;
-                            selectedPlot.ShowPopup();
-                        }
-                        else
-                        {
-                            selectedPlot.HidePopup();
+                        Plot plot = hit.transform.GetComponent<Plot>();
 
-                            if (selectedPlot != plot)
+                        if (plot != null)
+                        {
+                            if (selectedPlot == null)
                             {
                                 selectedPlot = plot;
                                 selectedPlot.ShowPopup();
                             }
                             else
                             {
-                                selectedPlot = null;
+                                selectedPlot.HidePopup();
+
+                                if (selectedPlot != plot)
+                                {
+                                    selectedPlot = plot;
+                                    selectedPlot.ShowPopup();
+                                }
+                                else
+                                {
+                                    selectedPlot = null;
+                                }
                             }
                         }
                     }

@@ -326,7 +326,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   - localposition: {x: 0, y: -1.2, z: 0}
     localScale: {x: 1.45, y: 1.45, z: 1.45}
     pitch: 1.1
-  - localposition: {x: 0, y: 0, z: 0}
+  - localposition: {x: 0, y: -0.4, z: 0}
     localScale: {x: 2, y: 2, z: 2}
     pitch: 1.2
   unitPrefab: {fileID: 114777477384616928, guid: c916040f988897c4f93c6028799bf745,

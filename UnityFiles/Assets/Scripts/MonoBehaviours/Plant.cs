@@ -49,13 +49,14 @@ public class Plant : MonoBehaviour
         {
             transform.localPosition = growthStages[growthStage].localposition;
             SetGlobalScale(transform, growthStages[growthStage].localScale);
-            growthStage++;
 
             if (growthSound != null)
             {
-             //   audioSource.pitch = growthStages[growthStage].pitch;
+                audioSource.pitch = growthStages[growthStage].pitch;
                 audioSource.PlayOneShot(growthSound);
             }
+
+            growthStage++;
 
             Invoke("Grow", growthTime);
         }
