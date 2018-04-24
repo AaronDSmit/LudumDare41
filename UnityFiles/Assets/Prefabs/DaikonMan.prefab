@@ -249,7 +249,7 @@ MonoBehaviour:
   grainPrefab: {fileID: 1239617520890932, guid: 9384622e8b6690a4a97e4ff3175e7088,
     type: 2}
   yAddition: 5
-  spawnChance: 0
+  spawnChance: 0.3
   hitParticle: {fileID: 1652855386796034, guid: 54eaca71006a0af40a71d57a3a0e90e4,
     type: 2}
   particleYIncrease: 4
