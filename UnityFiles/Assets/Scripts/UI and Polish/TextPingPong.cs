@@ -86,6 +86,12 @@ public class TextPingPong : MonoBehaviour
         StartCoroutine(Bounce(startValue, targetValue));
     }
 
+    public void FadeInUI()
+    {
+        FadeIn();
+        StartCoroutine(Bounce(startValue, targetValue));
+    }
+
     public void FadeIn()
     {
         StartCoroutine(FadeUI(Color.clear, Color.white, fadeTime));
