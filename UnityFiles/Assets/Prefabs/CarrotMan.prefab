@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4859718800131456}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CarrotManLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33187813186996190}
   - component: {fileID: 23307079711045228}
   - component: {fileID: 95889486637954038}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33643628035253942}
   - component: {fileID: 23683027400232952}
   - component: {fileID: 95010273097629770}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4802417811962546}
   - component: {fileID: 33242726024858704}
   - component: {fileID: 23691687999209562}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4040105275767454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CarrotManLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 114880751010073738}
   - component: {fileID: 65906430996816138}
   - component: {fileID: 82886726615887990}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CarrotMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,6 +469,7 @@ MonoBehaviour:
   grainPrefab: {fileID: 1239617520890932, guid: 9384622e8b6690a4a97e4ff3175e7088,
     type: 2}
   yAddition: 5
+  hitParticle: {fileID: 0}
   activated: {fileID: 8300000, guid: 855eb62b014640446accd6077c6019a3, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195672370942154306
