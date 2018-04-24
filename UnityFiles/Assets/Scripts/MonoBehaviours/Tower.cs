@@ -16,6 +16,13 @@ public class Tower : LivingEntity
         }
     }
 
+    public override void TakeDamge(float damage)
+    {
+        base.TakeDamge(damage);
+
+        ScreenShake.instance.Shake();
+    }
+
     public void ResetTower()
     {
         currentHealth = startHealth;

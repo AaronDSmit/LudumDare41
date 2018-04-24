@@ -24,6 +24,8 @@ public class ScreenShake : MonoBehaviour
 
     private Vector3 originalPos;
 
+    private bool canShake = true;
+
     private bool shaking = false;
 
     private bool kickedBacked = false;
@@ -46,6 +48,11 @@ public class ScreenShake : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetCanShake(bool _canShake)
+    {
+        canShake = _canShake;
+    }
+
     private void OnEnable()
     {
         originalPos = transform.localPosition;
@@ -54,7 +61,7 @@ public class ScreenShake : MonoBehaviour
 
     public void Shake()
     {
-        if (!shaking)
+        if (canShake && !shaking)
         {
             StartCoroutine(ShakeCam());
             shaking = true;

@@ -56,7 +56,7 @@ public class OptionsUI : MonoBehaviour
     {
         camShakeOn = !camShakeOn;
 
-        camShake.enabled = camShakeOn;
+        camShake.SetCanShake(camShakeOn);
 
         CamShakeButton.GetChild(0).gameObject.SetActive(camShakeOn);
         CamShakeButton.GetChild(1).gameObject.SetActive(!camShakeOn);
