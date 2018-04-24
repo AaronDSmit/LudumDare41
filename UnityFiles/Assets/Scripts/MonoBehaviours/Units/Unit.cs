@@ -18,6 +18,7 @@ public class Unit : LivingEntity
 	[Header("Grain")]
 	[SerializeField] private GameObject grainPrefab;
 	[SerializeField] private float yAddition;
+    [Range(0, 1), SerializeField] private float spawnChance;
 
     [Header("Particles")]
     [SerializeField] private GameObject hitParticle;
@@ -80,10 +81,13 @@ public class Unit : LivingEntity
 
     protected override void Die()
     {
+        if (Random.Range(0f, 1f) <= spawnChance) {
 		GameObject g = Instantiate(grainPrefab, transform.position, grainPrefab.transform.localRotation);
 
 		Vector3 location = new Vector3(transform.position.x, transform.position.y + yAddition, transform.position.z);
 		g.transform.position = location;
+        }
+
         Destroy(gameObject);
     }
 
