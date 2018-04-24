@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279900729590172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.12, y: 0, z: 0}
+  m_LocalPosition: {x: -1.55854, y: 0.099999994, z: 0.49202013}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4045138400636900}
@@ -469,7 +469,10 @@ MonoBehaviour:
   grainPrefab: {fileID: 1239617520890932, guid: 9384622e8b6690a4a97e4ff3175e7088,
     type: 2}
   yAddition: 5
-  hitParticle: {fileID: 0}
+  spawnChance: 0.3
+  hitParticle: {fileID: 1035626949972592, guid: dfb6a8d0bbc2d2b4886b1cdaf17546c4,
+    type: 2}
+  particleYIncrease: 4
   activated: {fileID: 8300000, guid: 855eb62b014640446accd6077c6019a3, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195796603177639182
