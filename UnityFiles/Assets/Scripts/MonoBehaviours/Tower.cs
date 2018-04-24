@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Tower : LivingEntity
 {
-
     protected Enemy enemy;
 
     protected Player player;
-
 
     [SerializeField]
     private int seedLoss;
@@ -23,14 +21,7 @@ public class Tower : LivingEntity
     }
     protected override void Die()
     {
-        if (team == Team.PLAYER)
-        {
-            Player.instance.Lose();
-        }
-        else
-        {
-            Player.instance.Win();
-        }
+
     }
 
     public override void TakeDamge(float damage)

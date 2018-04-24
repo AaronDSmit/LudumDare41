@@ -53,6 +53,11 @@ public class Enemy : MonoBehaviour
         currentGrain += amount;
         currentGrain = Mathf.Clamp(currentGrain, 0, startingGrainCount);
         UpdateGrainUI();
+
+        if (currentGrain <= 0)
+        {
+            Player.instance.Win();
+        }
     }
 
     private void RegenSeeds()

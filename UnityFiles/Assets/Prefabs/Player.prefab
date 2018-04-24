@@ -139,6 +139,10 @@ MonoBehaviour:
   plantCost: 1
   intialStartDelay: 2
   loseText: DEFEAT
+  loseParticleEffect: {fileID: 0}
   winText: VICTORY
+  winParticleEffect: {fileID: 0}
   winSound: {fileID: 0}
   loseSound: {fileID: 8300000, guid: 757f0b166b3fffd41b108c00b2064969, type: 3}
+  seedRegen: 0
+  seedRegenRate: 0

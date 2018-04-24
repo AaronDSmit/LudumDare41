@@ -28,8 +28,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private string loseText;
 
+    private GameObject loseParticleEffect;
+
     [SerializeField]
     private string winText;
+
+    private GameObject winParticleEffect;
 
     private bool inControl;
 
@@ -75,6 +79,12 @@ public class Player : MonoBehaviour
 
             seedCount = startSeedCount;
 
+            loseParticleEffect = GameObject.FindGameObjectWithTag("PlayerLoseEffect");
+            winParticleEffect = GameObject.FindGameObjectWithTag("PlayerWinEffect");
+
+            loseParticleEffect.SetActive(false);
+            winParticleEffect.SetActive(false);
+
             seedCountUI = GameObject.FindGameObjectWithTag("PlayerSeedCountUI").GetComponent<Text>();
             seedCountUI.text = "" + seedCount;
         }
@@ -103,6 +113,9 @@ public class Player : MonoBehaviour
         if (!gameEnded)
         {
             WorldText.instance.ShowText(loseText);
+
+            loseParticleEffect.SetActive(true);
+
             inControl = false;
 
             if (loseSound != null)
@@ -123,6 +136,8 @@ public class Player : MonoBehaviour
         if (!gameEnded)
         {
             WorldText.instance.ShowText(winText);
+
+            winParticleEffect.SetActive(true);
             inControl = false;
 
             if (winSound != null)
@@ -161,6 +176,9 @@ public class Player : MonoBehaviour
             Destroy(units[i].gameObject);
         }
 
+        winParticleEffect.SetActive(false);
+        loseParticleEffect.SetActive(false);
+
         opponent.ResetEnemy();
 
         WorldText.instance.ResetUI();
@@ -191,6 +209,11 @@ public class Player : MonoBehaviour
         seedCount += seedRegen;
         seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
         seedCountUI.text = "" + seedCount;
+
+        if (seedCount <= 0)
+        {
+            Lose();
+        }
     }
 
     public void HideTutorialUI()
@@ -213,6 +236,7 @@ public class Player : MonoBehaviour
         if (arrowTutorialUI != null)
         {
             arrowTutorialUI.SetActive(true);
+            arrowTutorialUI.GetComponent<TextPingPong>().FadeIn();
         }
     }
 
