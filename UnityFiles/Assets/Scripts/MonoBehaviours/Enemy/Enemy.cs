@@ -60,9 +60,8 @@ public class Enemy : MonoBehaviour
 
     public float HPRatio()
     {
-        return currentGrain / startingGrainCount;
+        return (float)currentGrain / startingGrainCount;
     }
-
 
     private void ChangeSeedCount(int amount)
     {

@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
 
     public float HPRatio()
     {
-        return currentPlant / startSeedCount;
+        return (float)seedCount / startSeedCount;
     }
 
     public void Win()
