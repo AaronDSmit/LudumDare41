@@ -15,12 +15,17 @@ public class Unit : LivingEntity
     [SerializeField] private float detectionRange;
     [SerializeField] private float roationSpeed;
 
+
+
+
 	[Header("Grain")]
 	[SerializeField] private GameObject grainPrefab;
 	[SerializeField] private float yAddition;
+	[Range(0, 1), SerializeField] private float spawnChance;
 
     [Header("Particles")]
     [SerializeField] private GameObject hitParticle;
+	[SerializeField] private float particleYIncrease;
 
 	private bool active;
     private bool canAttack;
@@ -57,13 +62,6 @@ public class Unit : LivingEntity
         agent.SetDestination(currentTarget.transform.position);
     }
 
-    public override void TakeDamge (float damage) {
-        base.TakeDamge(damage);
-
-        if(hitParticle != null)
-            Instantiate(hitParticle, transform.position, hitParticle.transform.localRotation);
-    }
-
     private void Update()
     {
         if (active == false)
@@ -78,14 +76,27 @@ public class Unit : LivingEntity
 		UpdateFacing();
 	}
 
-    protected override void Die()
-    {
-		GameObject g = Instantiate(grainPrefab, transform.position, grainPrefab.transform.localRotation);
+	public override void TakeDamge (float damage) {
+		base.TakeDamge(damage);
 
-		Vector3 location = new Vector3(transform.position.x, transform.position.y + yAddition, transform.position.z);
-		g.transform.position = location;
-        Destroy(gameObject);
-    }
+		if (hitParticle != null) {
+			Vector3 location = new Vector3 (transform.position.x, transform.position.y + particleYIncrease, transform.position.z);
+			GameObject p = Instantiate(hitParticle, location, transform.localRotation);
+			p.transform.SetParent (transform);
+		}
+	}
+
+	protected override void Die()
+	{
+		if (Random.Range(0f, 1f) <= spawnChance) {
+			GameObject g = Instantiate(grainPrefab, transform.position, grainPrefab.transform.localRotation);
+
+			Vector3 location = new Vector3(transform.position.x, transform.position.y + yAddition, transform.position.z);
+			g.transform.position = location;
+		}
+
+		Destroy(gameObject);
+	}
 
     private void CheckTarget()
     {

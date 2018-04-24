@@ -34,13 +34,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176206796547126}
-  m_LocalRotation: {x: 0.56326514, y: -0.70023996, z: -0.36889586, w: -0.237302}
-  m_LocalPosition: {x: 24.29035, y: 0, z: -4.519507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9726005, y: 0, z: 2.9668689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -51.625004, y: 187.70499, z: -441.357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198382537750486884
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -551,7 +551,7 @@ ParticleSystem:
     radiusThickness: 0.58
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: -30, y: -180, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
