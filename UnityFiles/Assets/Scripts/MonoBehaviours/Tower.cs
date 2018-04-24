@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class Tower : LivingEntity
 {
+
+    protected Enemy enemy;
+
+    protected Player player;
+
+
+    [SerializeField]
+    private int seedLoss;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        enemy = FindObjectOfType<Enemy>();
+        player = FindObjectOfType<Player>();
+
+    }
     protected override void Die()
     {
         if (team == Team.PLAYER)
@@ -21,6 +38,15 @@ public class Tower : LivingEntity
         base.TakeDamge(damage);
 
         ScreenShake.instance.Shake();
+
+        if (team == Team.AI)
+        {
+            enemy.ReduceSeed(-seedLoss);
+        }
+        else
+        {
+            player.ReduceSeed(-seedLoss);
+        }
     }
 
     public void ResetTower()

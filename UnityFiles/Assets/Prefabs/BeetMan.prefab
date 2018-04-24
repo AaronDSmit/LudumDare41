@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33767607389472522}
   - component: {fileID: 23615178856616418}
   - component: {fileID: 95980123454256282}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 195796603177639182}
   - component: {fileID: 65437639193125762}
   - component: {fileID: 82657880325537406}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeetMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4997143508669434}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeetMan Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4816197252129974}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeetMan Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4045138400636900}
   - component: {fileID: 33744970177818310}
   - component: {fileID: 23728730798430406}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 33517876451410010}
   - component: {fileID: 23988552795955638}
   - component: {fileID: 95983929051048880}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,6 +469,7 @@ MonoBehaviour:
   grainPrefab: {fileID: 1239617520890932, guid: 9384622e8b6690a4a97e4ff3175e7088,
     type: 2}
   yAddition: 5
+  hitParticle: {fileID: 0}
   activated: {fileID: 8300000, guid: 855eb62b014640446accd6077c6019a3, type: 3}
   attackSound: {fileID: 0}
 --- !u!195 &195796603177639182

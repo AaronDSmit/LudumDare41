@@ -1497,6 +1497,7 @@ MonoBehaviour:
   team: 1
   hpBar: {fileID: 224120108378022072}
   damaged: {fileID: 8300000, guid: 4ff2dbcb46d18394facfc4135ab3ef0e, type: 3}
+  seedLoss: 1
 --- !u!114 &114258144665689864
 MonoBehaviour:
   m_ObjectHideFlags: 1

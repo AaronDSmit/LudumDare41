@@ -50,6 +50,12 @@ public class Player : MonoBehaviour
 
     private bool gameEnded = false;
 
+    [SerializeField]
+    private int seedRegen;
+
+    [SerializeField]
+    private float seedRegenRate;
+
     private Enemy opponent;
 
     private GameObject arrowTutorialUI;
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Invoke("GainControl", intialStartDelay);
+        InvokeRepeating("RegenSeeds", seedRegenRate, seedRegenRate);
     }
 
     private void GainControl()
@@ -105,6 +112,8 @@ public class Player : MonoBehaviour
 
             gameEnded = true;
 
+            opponent.ResetEnemy();
+
             WorldText.instance.ShowRetryButton();
         }
     }
@@ -122,6 +131,8 @@ public class Player : MonoBehaviour
             }
 
             gameEnded = true;
+
+            opponent.ResetEnemy();
 
             WorldText.instance.ShowRetryButton();
         }
@@ -165,6 +176,23 @@ public class Player : MonoBehaviour
         ShowTutorialUI();
     }
 
+    private void RegenSeeds()
+    {
+        ChangeSeedCount(seedRegen);
+    }
+
+    public void ReduceSeed(int amount)
+    {
+        ChangeSeedCount(amount);
+    }
+
+    private void ChangeSeedCount(int amount)
+    {
+        seedCount += seedRegen;
+        seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
+        seedCountUI.text = "" + seedCount;
+    }
+
     public void HideTutorialUI()
     {
         TextPingPong[] tutorialText = FindObjectsOfType<TextPingPong>();
@@ -190,108 +218,110 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        PointerEventData pointerData = new PointerEventData(EventSystem.current);
-
-        pointerData.position = Input.mousePosition;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, results);
-
-        if (results.Count > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (results[0].gameObject.layer == LayerMask.NameToLayer("RetryUI"))
-            {
-                ResetGame();
-            }
-        }
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
 
-        if (inControl && Input.GetMouseButtonDown(0))
-        {
+            pointerData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
             if (results.Count > 0)
             {
-                if (results[0].gameObject.layer == LayerMask.NameToLayer("CarrotUI"))
+                if (results[0].gameObject.layer == LayerMask.NameToLayer("RetryUI"))
                 {
-                    selectedPlot.PlacePlant(plants[1], Team.PLAYER);
-
-                    seedCount -= plantCost;
-                    seedCountUI.text = "" + seedCount;
-
-                    if (!gameStarted)
-                    {
-                        opponent.Activate();
-                        HideTutorialUI();
-                        gameStarted = true;
-                    }
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
-                {
-                    selectedPlot.PlacePlant(plants[0], Team.PLAYER);
-                    seedCount -= plantCost;
-                    seedCountUI.text = "" + seedCount;
-
-                    if (!gameStarted)
-                    {
-                        opponent.Activate();
-                        HideTutorialUI();
-                        gameStarted = true;
-                    }
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("OptionsUI"))
-                {
-                    results[0].gameObject.GetComponentInParent<OptionsUI>().TogglePullDown();
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("AudioButton"))
-                {
-                    results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleAudio();
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("CamShakeButton"))
-                {
-                    results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleCamShake();
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("QuitButton"))
-                {
-                    Application.Quit();
-                }
-                else if (results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup"))
-                {
-                    Grain g = results[0].gameObject.GetComponentInParent<Grain>();
-                    seedCount += g.GrainValue;
-                    seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
-                    seedCountUI.text = "" + seedCount;
-
-                    g.Interact();
+                    ResetGame();
                 }
             }
-            else
+
+            if (inControl)
             {
-                if (seedCount >= plantCost)
+                if (results.Count > 0)
                 {
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit;
-
-                    if (Physics.Raycast(ray, out hit))
+                    if (results[0].gameObject.layer == LayerMask.NameToLayer("CarrotUI"))
                     {
-                        Plot plot = hit.transform.GetComponent<Plot>();
+                        selectedPlot.PlacePlant(plants[1], Team.PLAYER);
 
-                        if (plot != null)
+                        seedCount -= plantCost;
+                        seedCountUI.text = "" + seedCount;
+
+                        if (!gameStarted)
                         {
-                            if (selectedPlot == null)
-                            {
-                                selectedPlot = plot;
-                                selectedPlot.ShowPopup();
-                            }
-                            else
-                            {
-                                selectedPlot.HidePopup();
+                            opponent.Activate();
+                            HideTutorialUI();
+                            gameStarted = true;
+                        }
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("BeetUI"))
+                    {
+                        selectedPlot.PlacePlant(plants[0], Team.PLAYER);
+                        seedCount -= plantCost;
+                        seedCountUI.text = "" + seedCount;
 
-                                if (selectedPlot != plot)
+                        if (!gameStarted)
+                        {
+                            opponent.Activate();
+                            HideTutorialUI();
+                            gameStarted = true;
+                        }
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("OptionsUI"))
+                    {
+                        results[0].gameObject.GetComponentInParent<OptionsUI>().TogglePullDown();
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("AudioButton"))
+                    {
+                        results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleAudio();
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("CamShakeButton"))
+                    {
+                        results[0].gameObject.GetComponentInParent<OptionsUI>().ToggleCamShake();
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("QuitButton"))
+                    {
+                        Application.Quit();
+                    }
+                    else if (results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup"))
+                    {
+                        Grain g = results[0].gameObject.GetComponentInParent<Grain>();
+
+                        ChangeSeedCount(g.GrainValue);
+
+                        g.Interact();
+                    }
+                }
+                else
+                {
+                    if (seedCount >= plantCost)
+                    {
+                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        RaycastHit hit;
+
+                        if (Physics.Raycast(ray, out hit))
+                        {
+                            Plot plot = hit.transform.GetComponent<Plot>();
+
+                            if (plot != null)
+                            {
+                                if (selectedPlot == null)
                                 {
                                     selectedPlot = plot;
                                     selectedPlot.ShowPopup();
                                 }
                                 else
                                 {
-                                    selectedPlot = null;
+                                    selectedPlot.HidePopup();
+
+                                    if (selectedPlot != plot)
+                                    {
+                                        selectedPlot = plot;
+                                        selectedPlot.ShowPopup();
+                                    }
+                                    else
+                                    {
+                                        selectedPlot = null;
+                                    }
                                 }
                             }
                         }
@@ -300,4 +330,5 @@ public class Player : MonoBehaviour
             }
         }
     }
+
 }

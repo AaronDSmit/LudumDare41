@@ -54,8 +54,10 @@ MonoBehaviour:
   plantPrefabs:
   - {fileID: 114697893925622394, guid: 3be96a6ec5a6080438e7f84c56bd774d, type: 2}
   - {fileID: 114392026832739136, guid: c296ed6ab7646854da6bfa89769f0af1, type: 2}
-  plotCheckTimeMin: 4
-  plotCheckTimeMax: 4.5
+  plotCheckTimeMin: 1.5
+  plotCheckTimeMax: 3.5
   startingGrainCount: 100
   minGrainCount: 0
   plantCost: 1
+  seedRegen: 1
+  seedRegenRate: 4
