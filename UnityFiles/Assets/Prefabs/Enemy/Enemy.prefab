@@ -59,3 +59,5 @@ MonoBehaviour:
   startingGrainCount: 100
   minGrainCount: 0
   plantCost: 1
+  seedRegen: 1
+  seedRegenRate: 4

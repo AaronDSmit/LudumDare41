@@ -50,6 +50,12 @@ public class Player : MonoBehaviour
 
     private bool gameEnded = false;
 
+    [SerializeField]
+    private int seedRegen;
+
+    [SerializeField]
+    private float seedRegenRate;
+
     private Enemy opponent;
 
     private GameObject arrowTutorialUI;
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Invoke("GainControl", intialStartDelay);
+        InvokeRepeating("RegenSeeds", seedRegenRate, seedRegenRate);
     }
 
     private void GainControl()
@@ -163,6 +170,23 @@ public class Player : MonoBehaviour
         seedCountUI.text = "" + seedCount;
 
         ShowTutorialUI();
+    }
+
+    private void RegenSeeds()
+    {
+        ChangeSeedCount(seedRegen);
+    }
+
+    public void ReduceSeed(int amount)
+    {
+        ChangeSeedCount(amount);
+    }
+
+    private void ChangeSeedCount(int amount)
+    {
+        seedCount += seedRegen;
+        seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
+        seedCountUI.text = "" + seedCount;
     }
 
     public void HideTutorialUI()
@@ -255,9 +279,8 @@ public class Player : MonoBehaviour
                 else if (results[0].gameObject.layer == LayerMask.NameToLayer("GrainPickup"))
                 {
                     Grain g = results[0].gameObject.GetComponentInParent<Grain>();
-                    seedCount += g.GrainValue;
-                    seedCount = Mathf.Clamp(seedCount, 0, startSeedCount);
-                    seedCountUI.text = "" + seedCount;
+
+                    ChangeSeedCount(g.GrainValue);
 
                     g.Interact();
                 }
