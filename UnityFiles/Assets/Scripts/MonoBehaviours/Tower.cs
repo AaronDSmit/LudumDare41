@@ -32,11 +32,13 @@ public class Tower : LivingEntity
 
         if (team == Team.AI)
         {
-            enemy.ReduceSeed(-seedLoss);
+            enemy.ReduceSeed(seedLoss);
+            hpBar.localScale = new Vector3(enemy.HPRatio(), 1, 1);
         }
         else
         {
-            player.ReduceSeed(-seedLoss);
+            player.ReduceSeed(seedLoss);
+            hpBar.localScale = new Vector3(player.HPRatio(), 1, 1);
         }
     }
 

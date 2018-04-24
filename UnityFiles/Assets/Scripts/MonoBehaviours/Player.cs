@@ -125,10 +125,13 @@ public class Player : MonoBehaviour
 
             gameEnded = true;
 
-            opponent.ResetEnemy();
-
             WorldText.instance.ShowRetryButton();
         }
+    }
+
+    public float HPRatio()
+    {
+        return currentPlant / startSeedCount;
     }
 
     public void Win()
@@ -146,8 +149,6 @@ public class Player : MonoBehaviour
             }
 
             gameEnded = true;
-
-            opponent.ResetEnemy();
 
             WorldText.instance.ShowRetryButton();
         }
@@ -201,7 +202,7 @@ public class Player : MonoBehaviour
 
     public void ReduceSeed(int amount)
     {
-        ChangeSeedCount(amount);
+        ChangeSeedCount(-amount);
     }
 
     private void ChangeSeedCount(int amount)

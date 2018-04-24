@@ -29,6 +29,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float seedRegenRate;
 
+    private void Awake()
+    {
+        enemyGrainUI = GameObject.FindWithTag("EnemySeedCountUI").GetComponent<Text>();
+    }
+
     private void Start()
     {
         plots = new List<Plot>();
@@ -50,6 +55,17 @@ public class Enemy : MonoBehaviour
 
     public void ReduceSeed(int amount)
     {
+        ChangeSeedCount(-amount);
+    }
+
+    public float HPRatio()
+    {
+        return currentGrain / startingGrainCount;
+    }
+
+
+    private void ChangeSeedCount(int amount)
+    {
         currentGrain += amount;
         currentGrain = Mathf.Clamp(currentGrain, 0, startingGrainCount);
         UpdateGrainUI();
@@ -60,11 +76,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void RegenSeeds()
     {
-        currentGrain += seedRegen;
-        currentGrain = Mathf.Clamp(currentGrain, 0, startingGrainCount);
-        UpdateGrainUI();
+        ChangeSeedCount(seedRegen);
     }
 
     private void Update()
@@ -91,9 +106,7 @@ public class Enemy : MonoBehaviour
 
     public void GiveGrain(int amount)
     {
-        currentGrain += amount;
-        currentGrain = Mathf.Clamp(currentGrain, 0, startingGrainCount);
-        UpdateGrainUI();
+        ChangeSeedCount(amount);
     }
 
     private void CheckPlots()
@@ -135,7 +148,6 @@ public class Enemy : MonoBehaviour
 
     private void UpdateGrainUI()
     {
-        enemyGrainUI = GameObject.FindWithTag("EnemySeedCountUI").GetComponent<Text>();
         enemyGrainUI.text = "" + currentGrain;
     }
 }
