@@ -20,6 +20,10 @@ public class Plant : MonoBehaviour
     [SerializeField]
     private Team team;
 
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject plantedParticle;
+
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip growthSound;
@@ -41,6 +45,9 @@ public class Plant : MonoBehaviour
     private void Start()
     {
         Invoke("Grow", 0);
+
+        if (plantedParticle != null)
+            Instantiate(plantedParticle, transform.position, plantedParticle.transform.localRotation);
     }
 
     private void Grow()

@@ -421,4 +421,6 @@ MonoBehaviour:
   unitPrefab: {fileID: 114880751010073738, guid: b719bfedb9cd2b74986f4cb949f18e82,
     type: 2}
   team: 0
+  plantedParticle: {fileID: 1281266650198380, guid: 4e0775fdb049f724eac0d3bbdf1181ba,
+    type: 2}
   growthSound: {fileID: 8300000, guid: 74739a14590c12b45afe2011de235f40, type: 3}

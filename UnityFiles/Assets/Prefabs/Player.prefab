@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plants:
-  - {fileID: 114697893925622394, guid: 3be96a6ec5a6080438e7f84c56bd774d, type: 2}
+  - {fileID: 114746153277715678, guid: 310c1c32f878d2944baa090f62da5a68, type: 2}
   - {fileID: 114422054083203252, guid: b8f157111bcf1094998320e9ffb7471f, type: 2}
   startSeedCount: 100
   plantCost: 1

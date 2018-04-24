@@ -53,6 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantPrefabs:
   - {fileID: 114697893925622394, guid: 3be96a6ec5a6080438e7f84c56bd774d, type: 2}
-  - {fileID: 114422054083203252, guid: b8f157111bcf1094998320e9ffb7471f, type: 2}
+  - {fileID: 114392026832739136, guid: c296ed6ab7646854da6bfa89769f0af1, type: 2}
   plotCheckTimeMin: 4
   plotCheckTimeMax: 4.5
+  startingGrainCount: 100
+  minGrainCount: 0
+  plantCost: 1
